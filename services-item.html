@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Бюро оценки бизнеса</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="js/bootstrap-fileinput/css/fileinput.min.css">
+    <link rel="stylesheet" href="js/bootstrap-fileinput/css/fileinput-rtl.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    <div class="up-link"></div>
+    <div class="over-wrapper">
+      <div id="mobile-indicator"></div>
+      <div id="sm-indicator"></div>
+      <header>
+        <div class="header-top">
+          <div class="container">
+            <div class="row">
+              <div class="header-top-l">
+                <div class="header-logo"><img src="images/logo.png" alt="Бюро оценки бизнеса"></div>
+              </div>
+              <div class="header-top-r">
+                <div class="header-contacts">
+                  <div class="header-phone"><a href="tel:+7 (495) 540-41-91">+7 (495) 540-41-91</a></div>
+                  <div class="header-buttons"><a class="btn btn-callback" href="#" data-toggle="modal" data-target="#callbackModal"><span class="d-none d-sm-inline-block">Заказать звонок</span><span class="d-md-none">Звонок</span></a><a class="btn btn-feedback" href="#" data-toggle="modal" data-target="#feedbackModal"><span class="d-none d-sm-inline-block">Написать нам</span><span class="d-md-none">Написать</span></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header-bottom">
+          <div class="container">
+            <div class="navbar-trigger"><span></span><span></span><span></span></div>
+            <div class="navbar-wrapper">
+              <div class="close"></div>
+              <ul class="nav navbar-nav">
+                <li><a href="#"><span>О&nbsp;компании</span></a></li>
+                <li><a class="active" href="#"><span>Решения для&nbsp;бизнеса</span></a></li>
+                <li><a href="#"><span>Партнеры и&nbsp;клиенты</span></a></li>
+                <li><a href="#"><span>Оценка жилой недвижимости</span></a></li>
+                <li><a href="#"><span>Наши регалии</span></a></li>
+                <li><a href="#"><span>Контакты</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="main">
+        <div class="page-wrapper">
+          <!-- Шапка раздела-->
+          <div class="page-header page-header-alt">
+            <div class="page-header-pic" style="background-image:url(files/page-header-services-item.jpg);"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-md-7 col-lg-6">
+                  <div class="page-header-content">
+                    <ul class="breadcrumb">
+                      <li><a href="#">Главная</a></li>
+                      <li><a href="#">Решения для бизнеса</a></li>
+                      <li>Оценка и&nbsp;стоимостное консультирование</li>
+                    </ul>
+                    <h1>Оценка и&nbsp;стоимостное консультирование</h1>
+                    <p>Эффективный инструмент в&nbsp;решении управленческих вопросов, обеспечивает прозрачность заключения и&nbsp;оформления любых сделок.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Шапка раздела END-->
+          <!-- Закажите оценку-->
+          <div class="section section-order">
+            <div class="section-content">
+              <div class="container">
+                <div class="section-header">
+                  <div class="h2">Закажите оценку стоимости работ по&nbsp;вашей задаче</div>
+                </div>
+                <div class="form-alt order-form">
+                  <div class="form-descr">
+                    <p>Наши специалисты оперативно предоставят Вам качественную консультацию по&nbsp;всем вопросам</p>
+                  </div>
+                  <form>
+                    <div class="row">
+                      <div class="col-12 col-md-4 col-lg-5 col-xl-6">
+                        <div class="form-group">
+                          <label class="placeholder" for="order_name">Ваше имя</label>
+                          <input type="text" name="order_name" id="order_name" required>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+                        <div class="form-group">
+                          <label class="placeholder" for="order_phone">+7 (---) --- -- --</label>
+                          <input class="input-phone" type="text" name="order_phone" id="order_phone" required>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 col-lg-3 col-xl-3">
+                        <div class="form-footer">
+                          <button class="btn btn-1" type="submit">Отправить вопрос</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-agree">
+                      <p>Нажимая кнопку «Отправить вопрос» вы соглашаетесь с&nbsp;<a href="#">политикой конфиденциальности</a></p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Закажите оценку END-->
+          <!-- Контент-->
+          <div class="page-content">
+            <div class="container">
+              <div class="article-block">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="h2">Работая с нами вы получаете</div>
+                    <ul>
+                      <li>За годы работы специалистами компании «Бюро оценки бизнеса» был накоплен бесценный опыт по оценке и консультированию предприятий энергетической, нефтегазовой, строительной и банковской отрасли, производственных предприятий и предприятий малого бизнеса.</li>
+                      <li>Мы уверены, что наш многолетний опыт, открытость и безупречная репутация являются основой для дальнейшего успешного развития.</li>
+                      <li>12 лет оказывает услуги в области оценки, стоимостного консультирования</li>
+                    </ul>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="article-pic"><img src="files/article-pic-1.jpg"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="article-block">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="article-pic"><img src="files/article-pic-2.jpg"></div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <p>Консалтинговая компания «Бюро оценки бизнеса» в течение 12 лет оказывает услуги в области оценки, стоимостного консультирования, также кадастровой деятельности и заслужено занимает ведущие позиции на российском рынке. За годы работы специалистами компании «Бюро оценки бизнеса» был накоплен бесценный опыт по оценке и консультированию предприятий энергетической, нефтегазовой, строительной и банковской отрасли, производственных предприятий и предприятий малого бизнеса.</p>
+                    <p>Мы уверены, что наш многолетний опыт, открытость и безупречная репутация являются основой для дальнейшего успешного развития.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="h2">Этапы</div>
+              <div class="stages-list">
+                <div class="row">
+                  <div class="col-12 col-md-4 col-lg-3">
+                    <div class="stage-tmb">
+                      <div class="stage-tmb-num"><span>01</span></div>
+                      <div class="stage-tmb-descr">
+                        <div class="h3">Этап 1:<br>Заголовок этапа</div>
+                        <p>Реальное содействие бизнесу через индивидуальный подход к каждому клиенту, высокое качество и ответственность за принимаемые решения.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4 col-lg-3">
+                    <div class="stage-tmb">
+                      <div class="stage-tmb-num"><span>02</span></div>
+                      <div class="stage-tmb-descr">
+                        <div class="h3">Этап 2:<br>Заголовок этапа</div>
+                        <p>Индивидуальный подход к каждому клиенту, высокое качество и ответственность за принимаемые решения.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4 col-lg-3">
+                    <div class="stage-tmb">
+                      <div class="stage-tmb-num"><span>03</span></div>
+                      <div class="stage-tmb-descr">
+                        <div class="h3">Этап 3:<br>Заголовок этапа</div>
+                        <p>это реальное содействие бизнесу через индивидуальный подход к каждому клиенту, высокое качество.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4 col-lg-3">
+                    <div class="stage-tmb">
+                      <div class="stage-tmb-num"><span>04</span></div>
+                      <div class="stage-tmb-descr">
+                        <div class="h3">Этап 4:<br>Заголовок этапа</div>
+                        <p>Содействие бизнесу через индивидуальный подход к каждому клиенту, высокое качество и ответственность за принимаемые решения.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Контент END-->
+          <!-- Задачи-->
+          <div class="section section-tasks">
+            <div class="section-content">
+              <div class="container">
+                <div class="section-header">
+                  <div class="h2">Оценка решает задачи:</div>
+                </div>
+                <div class="tasks-list">
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div class="task-tmb">
+                        <div class="task-tmb-pic"><img src="images/task-1.png"></div>
+                        <div class="task-tmb-descr">
+                          <div class="h3">Многолетний опыт</div>
+                          <p>За свою многолетнюю практику Компанией реализовано множество проектов в сфере оценки. Мы работаем с ведущими российскими и зарубежными банками, страховыми и управляющими компаниями.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="task-tmb">
+                        <div class="task-tmb-pic"><img src="images/task-2.png"></div>
+                        <div class="task-tmb-descr">
+                          <div class="h3">Многолетний опыт</div>
+                          <p>За свою многолетнюю практику Компанией реализовано множество проектов в сфере оценки. Мы работаем с ведущими российскими и зарубежными банками, страховыми и управляющими компаниями.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="task-tmb">
+                        <div class="task-tmb-pic"><img src="images/task-3.png"></div>
+                        <div class="task-tmb-descr">
+                          <div class="h3">Многолетний опыт</div>
+                          <p>За свою многолетнюю практику Компанией реализовано множество проектов в сфере оценки. Мы работаем с ведущими российскими и зарубежными банками, страховыми и управляющими компаниями.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="task-tmb">
+                        <div class="task-tmb-pic"><img src="images/task-4.png"></div>
+                        <div class="task-tmb-descr">
+                          <div class="h3">Многолетний опыт</div>
+                          <p>За свою многолетнюю практику Компанией реализовано множество проектов в сфере оценки. Мы работаем с ведущими российскими и зарубежными банками, страховыми и управляющими компаниями.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Задачи END-->
+          <!-- Консультация инженера-->
+          <div class="section section-order">
+            <div class="section-content">
+              <div class="container">
+                <div class="section-header">
+                  <div class="h2">Бесплатная консультация оценщика</div>
+                </div>
+                <div class="form-alt order-form">
+                  <div class="form-descr">
+                    <p>Наши специалисты оперативно предоставят Вам качественную консультацию по&nbsp;всем вопросам</p>
+                  </div>
+                  <form>
+                    <div class="row">
+                      <div class="col-12 col-md-4 col-lg-5 col-xl-6">
+                        <div class="form-group">
+                          <label class="placeholder" for="consult_name">Ваше имя</label>
+                          <input type="text" name="consult_name" id="consult_name" required>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 col-lg-4 col-xl-3">
+                        <div class="form-group">
+                          <label class="placeholder" for="consult_phone">+7 (---) --- -- --</label>
+                          <input class="input-phone" type="text" name="consult_phone" id="consult_phone" required>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 col-lg-3 col-xl-3">
+                        <div class="form-footer">
+                          <button class="btn btn-1" type="submit">Отправить вопрос</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-agree">
+                      <p>Нажимая кнопку «Отправить вопрос» вы соглашаетесь с&nbsp;<a href="#">политикой конфиденциальности</a></p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Консультация инженера END                -->
+          <!-- Почему мы-->
+          <div class="section section-why">
+            <div class="section-content">
+              <div class="container">
+                <div class="section-header">
+                  <div class="h2">Почему мы?</div>
+                </div>
+                <div class="why-list">
+                  <div class="row">
+                    <div class="col-12 col-md-4">
+                      <div class="why-tmb">
+                        <div class="why-tmb-pic"><img src="images/why-1.png"></div>
+                        <div class="why-tmb-descr">
+                          <div class="h3">Многолетний опыт</div>
+                          <p>За свою многолетнюю практику Компанией реализовано множество проектов в сфере оценки. Мы работаем с ведущими российскими и зарубежными банками, страховыми и управляющими компаниями.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <div class="why-tmb">
+                        <div class="why-tmb-pic"><img src="images/why-2.png"></div>
+                        <div class="why-tmb-descr">
+                          <div class="h3">Эффективный инструмент</div>
+                          <p>Эффективный инструмент в решении управленческих вопросов, обеспечивает прозрачность заключения и оформления любых сделок.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <div class="why-tmb">
+                        <div class="why-tmb-pic"><img src="images/why-3.png"></div>
+                        <div class="why-tmb-descr">
+                          <div class="h3">Работаем с&nbsp;ведущими банками</div>
+                          <p>Мы работаем с ведущими российскими и зарубежными банками, страховыми и управляющими компаниями.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Почему мы END-->
+          <!-- Партнеры-->
+          <div class="section section-slider section-partners">
+            <div class="section-content">
+              <div class="container">
+                <div class="section-header">
+                  <div class="h2">Наши партнеры</div>
+                </div>
+                <ul class="nav nav-tabs partners-tabs" role="tablist">
+                  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#partners_1" role="tab" aria-controls="home" aria-selected="true" id="partners_1_tab">Банки</a></li>
+                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#partners_2" role="tab" aria-controls="profile" aria-selected="false" id="partners_2_tab">Девелопмент</a></li>
+                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#partners_3" role="tab" aria-controls="contact" aria-selected="false" id="partners_3_tab">Страховые</a></li>
+                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#partners_4" role="tab" aria-controls="contact" aria-selected="false" id="partners_4_tab">Ритейл</a></li>
+                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#partners_5" role="tab" aria-controls="contact" aria-selected="false" id="partners_5_tab">Гос. учреждения</a></li>
+                  <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#partners_6" role="tab" aria-controls="contact" aria-selected="false" id="partners_6_tab">Управление недвижимостью</a></li>
+                </ul>
+                <div class="tab-content partners-tab-content">
+                  <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="partners_1_tab" id="partners_1">
+                    <div class="custom-slider-wrapper partners-slider-wrapper">
+                      <div class="custom-slider partners-slider">
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-6.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" role="tabpanel" aria-labelledby="partners_2_tab" id="partners_2">
+                    <div class="custom-slider-wrapper partners-slider-wrapper">
+                      <div class="custom-slider partners-slider">
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-6.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" role="tabpanel" aria-labelledby="partners_3_tab" id="partners_3">
+                    <div class="custom-slider-wrapper partners-slider-wrapper">
+                      <div class="custom-slider partners-slider">
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-6.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" role="tabpanel" aria-labelledby="partners_4_tab" id="partners_4">
+                    <div class="custom-slider-wrapper partners-slider-wrapper">
+                      <div class="custom-slider partners-slider">
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-6.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" role="tabpanel" aria-labelledby="partners_5_tab" id="partners_5">
+                    <div class="custom-slider-wrapper partners-slider-wrapper">
+                      <div class="custom-slider partners-slider">
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-6.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" role="tabpanel" aria-labelledby="partners_6_tab" id="partners_6">
+                    <div class="custom-slider-wrapper partners-slider-wrapper">
+                      <div class="custom-slider partners-slider">
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-6.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-1.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-2.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-3.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-4.png"></div>
+                        </div>
+                        <div class="slide">
+                          <div class="slide-content"><img src="files/partner-5.png"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Партнеры END-->
+        </div>
+      </div>
+      <footer>
+        <!-- Вопросы-->
+        <div class="section section-order section-question">
+          <div class="section-content">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-md-8">
+                  <div class="question-form-wrapper">
+                    <div class="h2">Возникли вопросы?</div>
+                    <div class="question-form-text">
+                      <p>Наши специалисты оперативно предоставят Вам качественную консультацию по&nbsp;всем вопросам.</p>
+                    </div>
+                    <div class="question-form">
+                      <form>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="form-group">
+                              <label class="placeholder" for="question_name">Ваше имя</label>
+                              <input type="text" name="question_name" id="question_name" required>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                              <label class="placeholder" for="question_phone">+7 (---) --- -- --</label>
+                              <input class="input-phone" type="text" name="question_phone" id="question_phone" required>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                              <label class="placeholder" for="question_email">E-mail</label>
+                              <input type="email" name="question_email" id="question_email" required>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-6">
+                            <div class="form-footer">
+                              <button class="btn btn-2" type="submit">Отправить вопрос</button>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-6">
+                            <div class="form-agree">
+                              <p>Нажимая кнопку «Отправить вопрос» вы соглашаетесь с&nbsp;<a href="#">политикой конфиденциальности</a></p>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Вопросы END-->
+        <!-- Контакты-->
+        <div class="section section-contacts">
+          <div class="contacts-map" id="contactsMap"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                <div class="contacts-descr">
+                  <div class="h2">Контакты</div>
+                  <div class="contacts-phone"><a href="tel:+7 (495) 540-41-91">+7 (495) 540-41-91</a></div>
+                  <div class="contacts-button"><a class="btn btn-callback btn-callback-alt" href="#" data-toggle="modal" data-target="#callbackModal"><span>Заказать звонок</span></a></div>
+                  <p>БЦ «RIVERDALE»<br>115114, Россия, г. Москва,<br>2-й Павелецкий проезд, 5, стр.1</p>
+                  <p><a href="mailto:main@buroap.ru">main@buroap.ru</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Контакты END-->
+        <div class="footer-content">
+          <div class="container">
+            <div class="row">
+              <div class="col footer-col-1">
+                <div class="footer-logo">
+                  <div class="footer-logo-pic"><img src="images/logo.png" alt="Бюро оценки бизнеса"></div>
+                </div>
+              </div>
+              <div class="col footer-col-2">
+                <ul class="footer-menu">
+                  <li><a href="#">Услуги</a></li>
+                  <li><a href="#">О&nbsp;компании</a></li>
+                  <li><a href="#">Контакты</a></li>
+                </ul>
+              </div>
+              <div class="col footer-col-3">
+                <div class="footer-copy">
+                  <p>&copy; Бюро Оценки Бизнеса, 2019. Все права защищены</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="modal fade form-modal" id="callbackModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="h2">Заказать обратный звонок</div>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-form callback-form">
+                <form id="callbackForm">
+                  <div class="form-group">
+                    <label class="placeholder" for="callback_name">Ваше имя</label>
+                    <input type="text" name="callback_name" id="callback_name" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="callback_phone">+7 (---) --- -- --</label>
+                    <input class="input-phone" type="text" name="callback_phone" id="callback_phone" required>
+                  </div>
+                  <div class="form-footer">
+                    <button class="btn btn-1 btn-1-big" type="submit">Отправить</button>
+                  </div>
+                  <div class="form-agree">
+                    <p>Нажимая кнопку «Отправить вопрос» вы соглашаетесь с&nbsp;<a href="#">политикой конфиденциальности</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade form-modal" id="feedbackModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="h2">Написать нам</div>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-form feedback-form">
+                <form id="feedbackForm">
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_name">Ваше имя</label>
+                    <input type="text" name="feedback_name" id="feedback_name" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_phone">+7 (---) --- -- --</label>
+                    <input class="input-phone" type="text" name="feedback_phone" id="feedback_phone" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_email">E-mail</label>
+                    <input type="email" name="feedback_email" id="feedback_email" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_message">Вопрос</label>
+                    <textarea name="feedback_message" id="feedback_message" rows="4"></textarea>
+                  </div>
+                  <div class="form-footer">
+                    <button class="btn btn-1 btn-1-big" type="submit">Отправить</button>
+                  </div>
+                  <div class="form-agree">
+                    <p>Нажимая кнопку «Отправить вопрос» вы соглашаетесь с&nbsp;<a href="#">политикой конфиденциальности</a>              </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade success-modal" id="successModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="h2">Ваша заявка успешно принята!</div>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Юрист свяжется с&nbsp;вами в&nbsp;течение 15&nbsp;минут.</p>
+              <div class="success-modal-button">
+                <button class="btn btn-1 btn-1-big" type="button" data-dismiss="modal" aria-label="Close">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="js/bootstrap-select.min.js"></script>
+      <script src="js/jquery.validate.min.js"></script>
+      <script src="js/additional-methods.min.js"></script>
+      <script src="js/jquery.maskedinput.min.js"></script>
+      <script src="js/wNumb.min.js"></script>
+      <script src="js/slick.min.js"></script>
+      <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="js/bootstrap-fileinput/js/fileinput.min.js"></script>
+      <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>

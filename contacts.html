@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Бюро оценки бизнеса</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="js/bootstrap-fileinput/css/fileinput.min.css">
+    <link rel="stylesheet" href="js/bootstrap-fileinput/css/fileinput-rtl.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    <div class="up-link"></div>
+    <div class="over-wrapper">
+      <div id="mobile-indicator"></div>
+      <div id="sm-indicator"></div>
+      <header>
+        <div class="header-top">
+          <div class="container">
+            <div class="row">
+              <div class="header-top-l">
+                <div class="header-logo"><img src="images/logo.png" alt="Бюро оценки бизнеса"></div>
+              </div>
+              <div class="header-top-r">
+                <div class="header-contacts">
+                  <div class="header-phone"><a href="tel:+7 (495) 540-41-91">+7 (495) 540-41-91</a></div>
+                  <div class="header-buttons"><a class="btn btn-callback" href="#" data-toggle="modal" data-target="#callbackModal"><span class="d-none d-sm-inline-block">Заказать звонок</span><span class="d-md-none">Звонок</span></a><a class="btn btn-feedback" href="#" data-toggle="modal" data-target="#feedbackModal"><span class="d-none d-sm-inline-block">Написать нам</span><span class="d-md-none">Написать</span></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header-bottom">
+          <div class="container">
+            <div class="navbar-trigger"><span></span><span></span><span></span></div>
+            <div class="navbar-wrapper">
+              <div class="close"></div>
+              <ul class="nav navbar-nav">
+                <li><a href="#"><span>О&nbsp;компании</span></a></li>
+                <li><a class="active" href="#"><span>Решения для&nbsp;бизнеса</span></a></li>
+                <li><a href="#"><span>Партнеры и&nbsp;клиенты</span></a></li>
+                <li><a href="#"><span>Оценка жилой недвижимости</span></a></li>
+                <li><a href="#"><span>Наши регалии</span></a></li>
+                <li><a href="#"><span>Контакты</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="main">
+        <div class="page-wrapper">
+          <!-- Шапка раздела-->
+          <div class="page-header">
+            <div class="container">
+              <ul class="breadcrumb">
+                <li><a href="#">Главная</a></li>
+                <li>Контакты</li>
+              </ul>
+              <h1>Контакты</h1>
+            </div>
+          </div>
+          <!-- Шапка раздела END-->
+          <div class="section section-contacts">
+            <div class="contacts-map" id="contactsMap"></div>
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                  <div class="contacts-content">
+                    <div class="contacts-phone"><a href="tel:+7 (495) 540-41-91">+7 (495) 540-41-91</a></div>
+                    <div class="contacts-button"><a class="btn btn-callback btn-callback-alt" href="#" data-toggle="modal" data-target="#callbackModal"><span>Заказать обратный звонок</span></a></div>
+                    <p>БЦ «RIVERDALE»<br>115114, Россия, г. Москва,<br>2-й Павелецкий проезд, 5, стр.1</p>
+                    <p><a href="mailto:main@buroap.ru">main@buroap.ru</a></p>
+                    <div class="contacts-button-2"><a class="btn btn-feedback" href="#" data-target="modal" data-toggle="#feedbackModal">Написать нам</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="footer-content">
+          <div class="container">
+            <div class="row">
+              <div class="col footer-col-1">
+                <div class="footer-logo">
+                  <div class="footer-logo-pic"><img src="images/logo.png" alt="Бюро оценки бизнеса"></div>
+                </div>
+              </div>
+              <div class="col footer-col-2">
+                <ul class="footer-menu">
+                  <li><a href="#">Услуги</a></li>
+                  <li><a href="#">О&nbsp;компании</a></li>
+                  <li><a href="#">Контакты</a></li>
+                </ul>
+              </div>
+              <div class="col footer-col-3">
+                <div class="footer-copy">
+                  <p>&copy; Бюро Оценки Бизнеса, 2019. Все права защищены</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="modal fade form-modal" id="callbackModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="h2">Заказать обратный звонок</div>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-form callback-form">
+                <form id="callbackForm">
+                  <div class="form-group">
+                    <label class="placeholder" for="callback_name">Ваше имя</label>
+                    <input type="text" name="callback_name" id="callback_name" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="callback_phone">+7 (---) --- -- --</label>
+                    <input class="input-phone" type="text" name="callback_phone" id="callback_phone" required>
+                  </div>
+                  <div class="form-footer">
+                    <button class="btn btn-1 btn-1-big" type="submit">Отправить</button>
+                  </div>
+                  <div class="form-agree">
+                    <p>Нажимая кнопку «Отправить вопрос» вы соглашаетесь с&nbsp;<a href="#">политикой конфиденциальности</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade form-modal" id="feedbackModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="h2">Написать нам</div>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-form feedback-form">
+                <form id="feedbackForm">
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_name">Ваше имя</label>
+                    <input type="text" name="feedback_name" id="feedback_name" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_phone">+7 (---) --- -- --</label>
+                    <input class="input-phone" type="text" name="feedback_phone" id="feedback_phone" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_email">E-mail</label>
+                    <input type="email" name="feedback_email" id="feedback_email" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_message">Вопрос</label>
+                    <textarea name="feedback_message" id="feedback_message" rows="4"></textarea>
+                  </div>
+                  <div class="form-footer">
+                    <button class="btn btn-1 btn-1-big" type="submit">Отправить</button>
+                  </div>
+                  <div class="form-agree">
+                    <p>Нажимая кнопку «Отправить вопрос» вы соглашаетесь с&nbsp;<a href="#">политикой конфиденциальности</a>              </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade success-modal" id="successModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="h2">Ваша заявка успешно принята!</div>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Юрист свяжется с&nbsp;вами в&nbsp;течение 15&nbsp;минут.</p>
+              <div class="success-modal-button">
+                <button class="btn btn-1 btn-1-big" type="button" data-dismiss="modal" aria-label="Close">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="js/bootstrap-select.min.js"></script>
+      <script src="js/jquery.validate.min.js"></script>
+      <script src="js/additional-methods.min.js"></script>
+      <script src="js/jquery.maskedinput.min.js"></script>
+      <script src="js/wNumb.min.js"></script>
+      <script src="js/slick.min.js"></script>
+      <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="js/bootstrap-fileinput/js/fileinput.min.js"></script>
+      <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>

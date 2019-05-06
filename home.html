@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Бюро оценки бизнеса</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="js/bootstrap-fileinput/css/fileinput.min.css">
+    <link rel="stylesheet" href="js/bootstrap-fileinput/css/fileinput-rtl.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    <div class="up-link"></div>
+    <div class="over-wrapper">
+      <div id="mobile-indicator"></div>
+      <div id="sm-indicator"></div>
+      <header>
+        <div class="header-top">
+          <div class="container">
+            <div class="row">
+              <div class="header-top-l">
+                <div class="header-logo"><img src="images/logo.png" alt="Бюро оценки бизнеса"></div>
+              </div>
+              <div class="header-top-r">
+                <div class="header-contacts">
+                  <div class="header-phone"><a href="tel:+7 (495) 540-41-91">+7 (495) 540-41-91</a></div>
+                  <div class="header-buttons"><a class="btn btn-callback" href="#" data-toggle="modal" data-target="#callbackModal"><span class="d-none d-sm-inline-block">Заказать звонок</span><span class="d-md-none">Звонок</span></a><a class="btn btn-feedback" href="#" data-toggle="modal" data-target="#feedbackModal"><span class="d-none d-sm-inline-block">Написать нам</span><span class="d-md-none">Написать</span></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header-bottom">
+          <div class="container">
+            <div class="navbar-trigger"><span></span><span></span><span></span></div>
+            <div class="navbar-wrapper">
+              <div class="close"></div>
+              <ul class="nav navbar-nav">
+                <li><a href="#"><span>О&nbsp;компании</span></a></li>
+                <li><a class="active" href="#"><span>Решения для&nbsp;бизнеса</span></a></li>
+                <li><a href="#"><span>Партнеры и&nbsp;клиенты</span></a></li>
+                <li><a href="#"><span>Оценка жилой недвижимости</span></a></li>
+                <li><a href="#"><span>Наши регалии</span></a></li>
+                <li><a href="#"><span>Контакты</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="main">
+        <div class="page-wrapper">
+          <div class="main-slider">
+            <div class="slide" style="background-image: url(files/main-slide-1.jpg);">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 col-md-7 col-lg-6">
+                    <div class="slide-content">
+                      <div class="slide-content-inner">
+                        <div class="h2">Оценка и&nbsp;стоимостное консультирование</div>
+                        <div class="slide-button"><a class="btn btn-4" href="#"><span>Узнать больше</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide" style="background-image: url(files/main-slide-2.jpg);">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 col-md-7 col-lg-6">
+                    <div class="slide-content">
+                      <div class="slide-content-inner">
+                        <div class="h2">Второй слайд</div>
+                        <div class="slide-button"><a class="btn btn-4" href="#"><span>Узнать больше</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slide" style="background-image: url(files/main-slide-3.jpg);">
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 col-md-7 col-lg-6">
+                    <div class="slide-content">
+                      <div class="slide-content-inner">
+                        <div class="h2">Третий слайд</div>
+                        <div class="slide-button"><a class="btn btn-4" href="#"><span>Узнать больше</span></a></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Наши услуги-->
+          <div class="section section-services">
+            <div class="section-content">
+              <div class="container">
+                <div class="section-header">
+                  <div class="h2">Наши услуги</div>
+                </div>
+                <div class="custom-slider-wrapper services-slider-wrapper">
+                  <div class="custom-slider services-slider">
+                    <div class="slide"><a class="service-tmb" href="#">
+                        <div class="service-tmb-pic" style="background-image: url(files/service-1.jpg);"></div>
+                        <div class="service-tmb-descr">
+                          <div class="h3">Оценка и стоимостное консультирование</div>
+                          <div class="service-tmb-button">
+                            <div class="btn btn-5"><span>Узнать больше</span></div>
+                          </div>
+                        </div></a></div>
+                    <div class="slide"><a class="service-tmb" href="#">
+                        <div class="service-tmb-pic" style="background-image: url(files/service-2.jpg);"></div>
+                        <div class="service-tmb-descr">
+                          <div class="h3">Судебная экспертиза</div>
+                          <div class="service-tmb-button">
+                            <div class="btn btn-5"><span>Узнать больше</span></div>
+                          </div>
+                        </div></a></div>
+                    <div class="slide"><a class="service-tmb" href="#">
+                        <div class="service-tmb-pic" style="background-image: url(files/service-3.jpg);"></div>
+                        <div class="service-tmb-descr">
+                          <div class="h3">Оспаривание кадастровой стоимости</div>
+                          <div class="service-tmb-button">
+                            <div class="btn btn-5"><span>Узнать больше</span></div>
+                          </div>
+                        </div></a></div>
+                    <div class="slide"><a class="service-tmb" href="#">
+                        <div class="service-tmb-pic" style="background-image: url(files/service-4.jpg);"></div>
+                        <div class="service-tmb-descr">
+                          <div class="h3">Кадастровый инжиниринг</div>
+                          <div class="service-tmb-button">
+                            <div class="btn btn-5"><span>Узнать больше</span></div>
+                          </div>
+                        </div></a></div>
+                    <div class="slide"><a class="service-tmb" href="#">
+                        <div class="service-tmb-pic" style="background-image: url(files/service-1.jpg);"></div>
+                        <div class="service-tmb-descr">
+                          <div class="h3">Оценка и стоимостное консультирование</div>
+                          <div class="service-tmb-button">
+                            <div class="btn btn-5"><span>Узнать больше</span></div>
+                          </div>
+                        </div></a></div>
+                    <div class="slide"><a class="service-tmb" href="#">
+                        <div class="service-tmb-pic" style="background-image: url(files/service-2.jpg);"></div>
+                        <div class="service-tmb-descr">
+                          <div class="h3">Судебная экспертиза</div>
+                          <div class="service-tmb-button">
+                            <div class="btn btn-5"><span>Узнать больше</span></div>
+                          </div>
+                        </div></a></div>
+                    <div class="slide"><a class="service-tmb" href="#">
+                        <div class="service-tmb-pic" style="background-image: url(files/service-3.jpg);"></div>
+                        <div class="service-tmb-descr">
+                          <div class="h3">Оспаривание кадастровой стоимости</div>
+                          <div class="service-tmb-button">
+                            <div class="btn btn-5"><span>Узнать больше</span></div>
+                          </div>
+                        </div></a></div>
+                    <div class="slide"><a class="service-tmb" href="#">
+                        <div class="service-tmb-pic" style="background-image: url(files/service-4.jpg);"></div>
+                        <div class="service-tmb-descr">
+                          <div class="h3">Кадастровый инжиниринг</div>
+                          <div class="service-tmb-button">
+                            <div class="btn btn-5"><span>Узнать больше</span></div>
+                          </div>
+                        </div></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Наши услуги END-->
+          <!-- Контент-->
+          <div class="page-content">
+            <div class="container">
+              <div class="article-block">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="h2">О компании</div>
+                    <p>Консалтинговая компания «Бюро оценки бизнеса» в течение 12 лет оказывает услуги в области оценки, стоимостного консультирования, также кадастровой деятельности и заслужено занимает ведущие позиции на российском рынке.</p>
+                    <p>За годы работы специалистами компании «Бюро оценки бизнеса» был накоплен бесценный опыт по оценке и консультированию предприятий энергетической, нефтегазовой, строительной и банковской отрасли, производственных предприятий и предприятий малого бизнеса.</p>
+                    <p>Мы уверены, что наш многолетний опыт, открытость и безупречная репутация являются основой для дальнейшего успешного развития.</p>
+                    <div class="article-block-button"><a class="btn btn-4" href="#"><span>Узнать больше</span></a></div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="article-pic"><img src="files/article-pic-1.jpg"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="features-list">
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="feature-tmb">
+                      <div class="feature-tmb-pic"><img src="images/feature-1.png"></div>
+                      <div class="feature-tmb-descr">
+                        <div class="h3">Наша миссия</div>
+                        <p>это реальное содействие бизнесу через индивидуальный подход к&nbsp;каждому клиенту, высокое качество и&nbsp;ответственность за&nbsp;принимаемые решения.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="feature-tmb">
+                      <div class="feature-tmb-pic"><img src="images/feature-2.png"></div>
+                      <div class="feature-tmb-descr">
+                        <div class="h3">Наши ценности</div>
+                        <p>Наши ценности&nbsp;&mdash; это ключевые принципы, на&nbsp;которых основывается деятельность нашей компании. Это наш подход к&nbsp;бизнесу!</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Контент END-->
+          <!-- Клиенты-->
+          <div class="section section-slider section-partners section-partners-alt">
+            <div class="section-content">
+              <div class="container">
+                <div class="section-header">
+                  <div class="h2">Среди наших клиентов</div>
+                </div>
+                <div class="custom-slider-wrapper partners-slider-wrapper">
+                  <div class="custom-slider partners-slider">
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-1.png"></div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-2.png"></div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-3.png"></div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-4.png"></div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-5.png"></div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-6.png"></div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-1.png"></div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-2.png"></div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-3.png"></div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-4.png"></div>
+                    </div>
+                    <div class="slide">
+                      <div class="slide-content"><img src="files/client-5.png"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Клиенты END-->
+        </div>
+      </div>
+      <footer>
+        <!-- Вопросы-->
+        <div class="section section-order section-question">
+          <div class="section-content">
+            <div class="container">
+              <div class="row">
+                <div class="col-12 col-md-8">
+                  <div class="question-form-wrapper">
+                    <div class="h2">Возникли вопросы?</div>
+                    <div class="question-form-text">
+                      <p>Наши специалисты оперативно предоставят Вам качественную консультацию по&nbsp;всем вопросам.</p>
+                    </div>
+                    <div class="question-form">
+                      <form>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="form-group">
+                              <label class="placeholder" for="question_name">Ваше имя</label>
+                              <input type="text" name="question_name" id="question_name" required>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                              <label class="placeholder" for="question_phone">+7 (---) --- -- --</label>
+                              <input class="input-phone" type="text" name="question_phone" id="question_phone" required>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-6">
+                            <div class="form-group">
+                              <label class="placeholder" for="question_email">E-mail</label>
+                              <input type="email" name="question_email" id="question_email" required>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-6">
+                            <div class="form-footer">
+                              <button class="btn btn-2" type="submit">Отправить вопрос</button>
+                            </div>
+                          </div>
+                          <div class="col-12 col-lg-6">
+                            <div class="form-agree">
+                              <p>Нажимая кнопку «Отправить вопрос» вы соглашаетесь с&nbsp;<a href="#">политикой конфиденциальности</a></p>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Вопросы END-->
+        <!-- Контакты-->
+        <div class="section section-contacts">
+          <div class="contacts-map" id="contactsMap"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                <div class="contacts-descr">
+                  <div class="h2">Контакты</div>
+                  <div class="contacts-phone"><a href="tel:+7 (495) 540-41-91">+7 (495) 540-41-91</a></div>
+                  <div class="contacts-button"><a class="btn btn-callback btn-callback-alt" href="#" data-toggle="modal" data-target="#callbackModal"><span>Заказать звонок</span></a></div>
+                  <p>БЦ «RIVERDALE»<br>115114, Россия, г. Москва,<br>2-й Павелецкий проезд, 5, стр.1</p>
+                  <p><a href="mailto:main@buroap.ru">main@buroap.ru</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Контакты END-->
+        <div class="footer-content">
+          <div class="container">
+            <div class="row">
+              <div class="col footer-col-1">
+                <div class="footer-logo">
+                  <div class="footer-logo-pic"><img src="images/logo.png" alt="Бюро оценки бизнеса"></div>
+                </div>
+              </div>
+              <div class="col footer-col-2">
+                <ul class="footer-menu">
+                  <li><a href="#">Услуги</a></li>
+                  <li><a href="#">О&nbsp;компании</a></li>
+                  <li><a href="#">Контакты</a></li>
+                </ul>
+              </div>
+              <div class="col footer-col-3">
+                <div class="footer-copy">
+                  <p>&copy; Бюро Оценки Бизнеса, 2019. Все права защищены</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="modal fade form-modal" id="callbackModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="h2">Заказать обратный звонок</div>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-form callback-form">
+                <form id="callbackForm">
+                  <div class="form-group">
+                    <label class="placeholder" for="callback_name">Ваше имя</label>
+                    <input type="text" name="callback_name" id="callback_name" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="callback_phone">+7 (---) --- -- --</label>
+                    <input class="input-phone" type="text" name="callback_phone" id="callback_phone" required>
+                  </div>
+                  <div class="form-footer">
+                    <button class="btn btn-1 btn-1-big" type="submit">Отправить</button>
+                  </div>
+                  <div class="form-agree">
+                    <p>Нажимая кнопку «Отправить вопрос» вы соглашаетесь с&nbsp;<a href="#">политикой конфиденциальности</a></p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade form-modal" id="feedbackModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="h2">Написать нам</div>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-form feedback-form">
+                <form id="feedbackForm">
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_name">Ваше имя</label>
+                    <input type="text" name="feedback_name" id="feedback_name" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_phone">+7 (---) --- -- --</label>
+                    <input class="input-phone" type="text" name="feedback_phone" id="feedback_phone" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_email">E-mail</label>
+                    <input type="email" name="feedback_email" id="feedback_email" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="placeholder" for="feedback_message">Вопрос</label>
+                    <textarea name="feedback_message" id="feedback_message" rows="4"></textarea>
+                  </div>
+                  <div class="form-footer">
+                    <button class="btn btn-1 btn-1-big" type="submit">Отправить</button>
+                  </div>
+                  <div class="form-agree">
+                    <p>Нажимая кнопку «Отправить вопрос» вы соглашаетесь с&nbsp;<a href="#">политикой конфиденциальности</a>              </p>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade success-modal" id="successModal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="h2">Ваша заявка успешно принята!</div>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Юрист свяжется с&nbsp;вами в&nbsp;течение 15&nbsp;минут.</p>
+              <div class="success-modal-button">
+                <button class="btn btn-1 btn-1-big" type="button" data-dismiss="modal" aria-label="Close">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="js/bootstrap-select.min.js"></script>
+      <script src="js/jquery.validate.min.js"></script>
+      <script src="js/additional-methods.min.js"></script>
+      <script src="js/jquery.maskedinput.min.js"></script>
+      <script src="js/wNumb.min.js"></script>
+      <script src="js/slick.min.js"></script>
+      <script src="js/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="js/bootstrap-fileinput/js/fileinput.min.js"></script>
+      <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+      <script src="js/main.js"></script>
+    </div>
+  </body>
+</html>
