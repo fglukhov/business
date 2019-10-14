@@ -1078,8 +1078,17 @@ ul.navbar-nav a.active:after {
   padding: 37px 0 40px 0;
   font-size: 18px;
   line-height: 30px;
-  color: #222222;
-  min-height: 500px; }
+  color: #222222; }
+
+.page-header-alt .title-wrapper {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.page-header-alt h1,
+.page-header-alt .h1 {
+  margin: 0; }
 
 .page-header-alt .page-header-pic {
   position: absolute;
@@ -1087,8 +1096,8 @@ ul.navbar-nav a.active:after {
   right: 0;
   top: 0;
   bottom: 0;
-  background-position: center center;
-  background-size: cover; }
+  background-position: right center;
+  background-size: auto 100%; }
 
 .page-header-alt .page-header-pic:before {
   content: "";

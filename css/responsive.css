@@ -149,8 +149,8 @@ body,
     padding: 0 0 15px 0; }
   .header-logo {
     padding: 20px 0 0 0; }
-  .page-header-alt {
-    min-height: 400px; }
+  .page-header-alt .title-wrapper {
+    min-height: 150px; }
   .task-tmb {
     display: block; }
   .task-tmb-pic {
@@ -354,6 +354,8 @@ body,
     padding: 20px 0 30px 0;
     font-size: 16px;
     line-height: 26px;
+    min-height: 0; }
+  .page-header-alt .title-wrapper {
     min-height: 0; }
   .page-header-alt .page-header-pic:before {
     background: linear-gradient(to right, #f9f7f3 50%, rgba(249, 247, 243, 0.8) 65%); }
