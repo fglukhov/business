@@ -44,6 +44,125 @@ var baseUrl = ""
 
 $(document).ready(function () {
 
+  calcFields();
+
+  // Calc form
+
+  if ($(".calc-form").length) {
+
+    $(".calc-form select").on("change", function () {
+
+      calcFields();
+
+      calcPrice($(this).closest(".calc-realty-form"));
+
+    });
+
+    $(".realty-radio input").on("change", function () {
+
+      $(".calc-realty-form").hide().removeClass("active");
+      $(".calc-realty-form[data-index='" + $(".realty-radio input:checked").val() + "']").fadeIn(200).addClass("active");
+
+      calcFields();
+
+    });
+
+    $(".calc-nav-item").click(function () {
+
+      if (!$(this).hasClass("disabled")) {
+
+        var curIndex = $(this).data("index");
+
+        $(".calc-nav-item").removeClass("active");
+        $(this).addClass("active");
+
+        $(".calc-step.active").removeClass("active").hide();
+        $(".calc-step[data-index='" + curIndex + "']").fadeIn(200, function () {
+
+          $(".calc-step[data-index='" + curIndex + "']").addClass("active");
+
+        });
+
+        if (curIndex == 3) {
+
+          $(".calc-confirm-list").html("");
+
+          $(".calc-realty-form.active .form-group").each(function () {
+
+            if (!$(this).find(":disabled").not(".always-disabled").not("option").length) {
+
+              var calcConfirmItem = $('<div class="calc-confirm-item"></div>');
+
+              calcConfirmItem.append('<div class="calc-confirm-name">' + $(this).children("label").html() + ':&nbsp;</div>');
+
+              if ($(this).find("select").length) {
+
+                var itemVal = $(this).find("select option:selected").html();
+
+              } else if ($(this).find("input[type='text']").length) {
+
+                var itemVal = $(this).find("input[type='text']").val();
+
+              } else if ($(this).find("input[type='radio']").length) {
+
+                var itemVal = $(this).find("input[type='radio']:checked").next("label").html();
+
+              }
+
+              calcConfirmItem.append('<div class="calc-confirm-val">' + itemVal + '</div>');
+
+              $(".calc-confirm-list").append(calcConfirmItem);
+
+            }
+
+          });
+
+        }
+
+      }
+
+    });
+
+    $(".calc-step .btn-forward").click(function () {
+
+      $(".calc-step.active input, .calc-step.active select, .calc-step.active textarea").each(function () {
+
+        if ($(this).closest(".calc-realty-form").hasClass("active") || !$(this).closest(".calc-realty-form").length) {
+
+          $(this).valid();
+
+        }
+
+      });
+
+      errorsCustom();
+
+      if (!$(".calc-step.active [aria-invalid='true']").not(".always-disabled").not(":disabled").not(".disabled").length) {
+
+        var nextIndex = $(".calc-step.active").next(".calc-step").data("index");
+
+        $(".calc-nav-item[data-index='" + nextIndex + "']").removeClass("disabled").click();
+
+
+      } else {
+
+
+
+      }
+
+    });
+
+    $(".calc-realty-form.active select").on("change", function () {
+
+      $(this).valid();
+      errorsCustom();
+
+    });
+
+  }
+
+  // Calc form END
+
   makeUp();
 
   // Sliders
@@ -372,6 +491,19 @@ $(document).ready(function () {
     $(this).closest(".form-item").removeClass("focus")
   });
 
+  $(".input-date").each(function () {
+
+    var datepickerObj = $(this);
+
+    datepickerObj.datetimepicker({
+      format: 'DD.MM.YYYY',
+      locale: 'ru-RU',
+      allowInputToggle: true,
+      minDate: new Date()
+    });
+
+  });
+
   validateForms();
 
 });
@@ -384,7 +516,7 @@ function validateForms() {
     require_from_group: [1, ".phone-email-group"]
   });
 
-  $("select").on("change", function () {
+  $("select").not(".calc-form select").on("change", function () {
     if (!$(this).closest(".picker").length) {
       $(this).valid();
     }
@@ -396,7 +528,7 @@ function validateForms() {
     }
   });
 
-  $("form").each(function() {
+  $("form").not(".calc-form").each(function() {
 
     form = $(this);
 
@@ -549,5 +681,359 @@ function makeUp() {
 
 
   }
+
+}
+
+function calcFields() {
+
+  if ($(".calc-form").length) {
+
+    $(".calc-realty-form input, .calc-realty-form select, .calc-realty-form textarea").each(function () {
+
+      if (!$(this).closest(".calc-realty-form").hasClass("active")) {
+
+        $(this).prop("disabled",true);
+
+        if ($(this).prop("tagName") == "SELECT") {
+
+          $(this).selectpicker("refresh");
+
+        }
+
+      } else {
+
+        if (!$(this).hasClass("always-disabled")) {
+
+          $(this).prop("disabled",false);
+
+          if ($(this).prop("tagName") == "SELECT") {
+
+            $(this).selectpicker("refresh");
+
+          }
+
+        }
+
+      }
+
+    });
+
+    $(".calc-form [data-parent]").each(function () {
+
+      if (!$($(this).data("parent")).find("[data-child='#" + $(this).attr("id") + "']").is(":selected")) {
+
+        $(this).prop("disabled",true);
+        $(this).closest(".form-group").hide();
+
+        if ($(this).prop("tagName") == "SELECT") {
+
+          $(this).selectpicker("refresh");
+
+        }
+
+      } else {
+
+        $(this).prop("disabled",false);
+        $(this).closest(".form-group").show();
+
+        if ($(this).prop("tagName") == "SELECT") {
+
+          $(this).selectpicker("refresh");
+
+        }
+
+      }
+
+
+    });
+
+
+
+  }
+
+}
+
+function calcPrice(activeForm) {
+
+
+  if (activeForm.data("index") == 1) {
+
+    if ($("#calc_1_location").val() && $("#calc_1_area").val() && $("#calc_1_term").val()) {
+
+      if ($("#calc_1_location").val() == "1") {
+
+        if ($("#calc_1_area").val() == "1") {
+
+          var totalPrice = 4500;
+
+        } else if ($("#calc_1_area").val() == "2") {
+
+          var totalPrice = 5000;
+
+        }
+
+      } else if ($("#calc_1_location").val() == "2") {
+
+        if ($("#calc_1_area").val() == "1") {
+
+          var totalPrice = 5000;
+
+        } else if ($("#calc_1_area").val() == "2") {
+
+          var totalPrice = 5500;
+
+        }
+
+      }
+
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+
+      activeForm.find(".calc-result-term").html($("#calc_1_term").val());
+      activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_1_term").val(), ['день', 'дня', 'дней']));
+
+      activeForm.find(".calc-form-result").slideDown(250);
+
+      $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+
+      $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_1_term").val());
+      $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_1_term").val(), ['день', 'дня', 'дней']));
+
+    } else {
+
+      activeForm.find(".calc-form-result").slideUp(250);
+
+    }
+
+  }
+
+
+  if (activeForm.data("index") == 2) {
+
+    if ($("#calc_2_location").val() && $("#calc_2_term").val()) {
+
+      if ($("#calc_2_location").val() == "1") {
+
+        var totalPrice = 4275;
+
+      } else if ($("#calc_2_location").val() == "2") {
+
+        var totalPrice = 4750;
+
+      }
+
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+
+      activeForm.find(".calc-result-term").html($("#calc_2_term").val());
+      activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_2_term").val(), ['день', 'дня', 'дней']));
+
+      activeForm.find(".calc-form-result").slideDown(250);
+
+      $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+
+      $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_2_term").val());
+      $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_2_term").val(), ['день', 'дня', 'дней']));
+
+    } else {
+
+      activeForm.find(".calc-form-result").slideUp(250);
+
+    }
+
+  }
+
+  if (activeForm.data("index") == 3) {
+
+    if ($("#calc_3_area").val() && $("#calc_3_term").val()) {
+
+      if ($("#calc_3_area").val() == "1") {
+
+        if ($("#calc_3_term").val() == "1") {
+
+          var totalPrice = 18000;
+
+        } else if ($("#calc_3_term").val() == "3") {
+
+          var totalPrice = 16000;
+
+        }
+
+      } else if ($("#calc_3_area").val() == "2") {
+
+        var totalPrice = 0;
+
+        var totalPriceButton = '<a href="#" class="btn btn-1" data-toggle="modal" data-target="#callbackModal">Узнать стоимость</a>';
+
+      }
+
+
+      if (totalPrice != 0) {
+
+        activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+
+        activeForm.find(".calc-result-term").html($("#calc_3_term").val());
+        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
+
+        activeForm.find(".calc-form-result").slideDown(250);
+
+        $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
+        $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+
+        $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_3_term").val());
+        $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
+
+        $(".item-discount, .calc-result-price-units").show();
+
+      } else {
+
+        activeForm.find(".calc-result-price").html(totalPriceButton);
+
+        activeForm.find(".calc-result-term").html($("#calc_3_term").val());
+        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
+
+        activeForm.find(".calc-form-result").slideDown(250);
+
+        $(".calc-form-result-vis").find(".calc-result-price").html(totalPriceButton);
+
+        $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_3_term").val());
+        $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
+
+        $(".item-discount, .calc-result-price-units").hide();
+
+      }
+
+
+    } else {
+
+      activeForm.find(".calc-form-result").slideUp(250);
+
+    }
+
+  }
+
+  if (activeForm.data("index") == 4) {
+
+    if ($("#calc_4_area").val() && $("#calc_4_term").val()) {
+
+      if ($("#calc_4_area").val() == "1") {
+
+        var totalPrice = 10000;
+
+      } else if ($("#calc_4_area").val() == "2") {
+
+        var totalPrice = 14000;
+
+      }
+
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+
+      activeForm.find(".calc-result-term").html($("#calc_4_term").val());
+      activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_4_term").val(), ['день', 'дня', 'дней']));
+
+      activeForm.find(".calc-form-result").slideDown(250);
+
+      $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+
+      $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_4_term").val());
+      $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_4_term").val(), ['день', 'дня', 'дней']));
+
+    } else {
+
+      activeForm.find(".calc-form-result").slideUp(250);
+
+    }
+
+  }
+
+  if (activeForm.data("index") == 5) {
+
+    if ($("#calc_5_location").val() && $("#calc_5_term").val()) {
+
+      if ($("#calc_5_location").val() == "1") {
+
+        var totalPrice = 5700;
+
+      } else if ($("#calc_5_location").val() == "2") {
+
+        var totalPrice = 6175;
+
+      }
+
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+
+      activeForm.find(".calc-result-term").html($("#calc_5_term").val());
+      activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_5_term").val(), ['день', 'дня', 'дней']));
+
+      activeForm.find(".calc-form-result").slideDown(250);
+
+      $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+
+      $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_5_term").val());
+      $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_5_term").val(), ['день', 'дня', 'дней']));
+
+    } else {
+
+      activeForm.find(".calc-form-result").slideUp(250);
+
+    }
+
+  }
+
+  if (activeForm.data("index") == 6) {
+
+    if ($("#calc_6_location").val() && $("#calc_6_term").val()) {
+
+      if ($("#calc_6_location").val() == "1") {
+
+        var totalPrice = 5700;
+
+      } else if ($("#calc_6_location").val() == "2") {
+
+        var totalPrice = 6175;
+
+      }
+
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+
+      activeForm.find(".calc-result-term").html($("#calc_6_term").val());
+      activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_6_term").val(), ['день', 'дня', 'дней']));
+
+      activeForm.find(".calc-form-result").slideDown(250);
+
+      $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+
+      $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_6_term").val());
+      $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_6_term").val(), ['день', 'дня', 'дней']));
+
+    } else {
+
+      activeForm.find(".calc-form-result").slideUp(250);
+
+    }
+
+  }
+
+
+}
+
+function errorsCustom() {
+
+  $("select").each(function () {
+
+    if ($(this).hasClass("error")) {
+
+      $(this).closest(".btn-group").find(".dropdown-toggle").addClass("error");
+
+    } else {
+
+      $(this).closest(".btn-group").find(".dropdown-toggle").removeClass("error");
+
+    }
+
+  });
 
 }

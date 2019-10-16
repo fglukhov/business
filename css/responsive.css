@@ -123,7 +123,9 @@ body,
   .main-slider h2,
   .main-slider .h2 {
     font-size: 36px;
-    line-height: 40px; } }
+    line-height: 40px; }
+  .client-col {
+    width: 20%; } }
 
 /* Large desktop END */
 /* Medium desktop */
@@ -170,7 +172,19 @@ body,
     height: 150px;
     width: auto;
     border-radius: 4px 4px 0 0;
-    margin: -1px -1px 0 -1px; } }
+    margin: -1px -1px 0 -1px; }
+  .calc-wrapper {
+    padding: 20px 25px 20px 25px; }
+  .calc-wrapper h2, .calc-wrapper .h2 {
+    font-size: 40px;
+    line-height: 45px; }
+  .calc-nav-item {
+    font-size: 14px;
+    line-height: 18px; }
+  .block-hl {
+    padding: 20px 20px 20px 20px; }
+  .client-col {
+    width: 25%; } }
 
 /* Medium desktop END */
 /* Small desktop END */
@@ -472,6 +486,57 @@ body,
   .article-block + .features-list {
     margin-top: 40px; }
   .contacts-content {
-    padding: 30px 20px 30px 20px; } }
+    padding: 30px 20px 30px 20px; }
+  .section-calc {
+    padding: 10px 0 10px 0; }
+  .calc-wrapper {
+    margin: 0 -10px;
+    padding: 20px 15px 20px 15px; }
+  .calc-wrapper h2,
+  .calc-wrapper .h2 {
+    font-size: 30px;
+    line-height: 35px; }
+  .calc-nav {
+    margin: 0 0 5px 0; }
+  .calc-nav-item {
+    padding: 5px 10px 5px 10px;
+    line-height: 16px; }
+  .realty-radios {
+    flex-wrap: wrap; }
+  .realty-radio {
+    width: 33.333%; }
+  .realty-radio-pic {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px; }
+  .realty-radio-img {
+    width: 30px;
+    height: 30px; }
+  .realty-radio-pic img {
+    width: 30px;
+    height: 60px; }
+  .realty-radio input[type='radio']:checked + label .realty-radio-img img {
+    top: -30px; }
+  .realty-radio-descr {
+    font-size: 13px;
+    line-height: 16px; }
+  .time-radio input[type='radio'] + label {
+    font-size: 13px;
+    line-height: 16px;
+    padding: 6px 5px 6px 5px; }
+  .calc-form-result {
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 15px 15px 15px 15px; }
+  .calc-form-result-content {
+    font-size: 16px;
+    line-height: 24px;
+    display: block; }
+  .calc-form-footer {
+    text-align: center; }
+  .calc-confirm-item {
+    width: 100%; }
+  .client-col {
+    width: 33.33%; } }
 
 /* Mobile END */
