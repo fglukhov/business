@@ -58,10 +58,14 @@ $(document).ready(function () {
 
     });
 
+    $("#step3type").html($(".realty-radio input:checked").next("label").find(".realty-radio-descr").text());
+
     $(".realty-radio input").on("change", function () {
 
       $(".calc-realty-form").hide().removeClass("active");
       $(".calc-realty-form[data-index='" + $(".realty-radio input:checked").val() + "']").fadeIn(200).addClass("active");
+
+      $("#step3type").html($(".realty-radio input:checked").next("label").find(".realty-radio-descr").text());
 
       calcFields();
 
@@ -758,38 +762,44 @@ function calcPrice(activeForm) {
 
   if (activeForm.data("index") == 1) {
 
-    if ($("#calc_1_location").val() && $("#calc_1_area").val() && $("#calc_1_term").val()) {
+    var totalPrice = 0;
 
-      if ($("#calc_1_location").val() == "1") {
+    if ($("#calc_1_location").val() &&
+      (($("#calc_1_purpose").val() && $("#calc_1_purpose option:selected").data("prices")) ||
+        ($("#calc_1_purpose").val() && $("#calc_1_bank").val() && !$("#calc_1_bank").is("disabled"))) &&
+      $("#calc_1_term").val() &&
+      $("#calc_1_report").val() &&
+      $("#calc_1_copies").val()) {
 
-        if ($("#calc_1_area").val() == "1") {
+      if ($("#calc_1_purpose option:selected").data("prices")) {
 
-          var totalPrice = 4500;
+        var purposePriceArr = $("#calc_1_purpose option:selected").data("prices");
 
-        } else if ($("#calc_1_area").val() == "2") {
+        totalPrice += parseInt(purposePriceArr[$("#calc_1_location").val() - 1]);
 
-          var totalPrice = 5000;
+      } else {
 
-        }
+        var banksPriceArr = $("#calc_1_bank option:selected").data("prices");
 
-      } else if ($("#calc_1_location").val() == "2") {
-
-        if ($("#calc_1_area").val() == "1") {
-
-          var totalPrice = 5000;
-
-        } else if ($("#calc_1_area").val() == "2") {
-
-          var totalPrice = 5500;
-
-        }
+        totalPrice += parseInt(banksPriceArr[$("#calc_1_location").val() - 1]);
 
       }
 
-      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      totalPrice += (parseInt($("#calc_1_copies").val()) - 2)*500;
+      totalPrice += parseInt($("#calc_1_report option:selected").data("price"));
 
-      activeForm.find(".calc-result-term").html($("#calc_1_term").val());
-      activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_1_term").val(), ['день', 'дня', 'дней']));
+      if ($("#calc_1_term option:selected").data("factor")) {
+
+        totalPrice *= 2;
+
+        activeForm.find(".calc-result-term").html("Быстрая оценка в течение");
+        activeForm.find(".calc-result-term-units").html("дня");
+      } else {
+        activeForm.find(".calc-result-term").html($("#calc_1_term").val());
+        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_1_term").val(), ['день', 'дня', 'дней']));
+      }
+
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
@@ -807,25 +817,46 @@ function calcPrice(activeForm) {
 
   }
 
-
   if (activeForm.data("index") == 2) {
 
-    if ($("#calc_2_location").val() && $("#calc_2_term").val()) {
+    var totalPrice = 0;
 
-      if ($("#calc_2_location").val() == "1") {
+    if ($("#calc_2_location").val() &&
+      (($("#calc_2_purpose").val() && $("#calc_2_purpose option:selected").data("prices")) ||
+        ($("#calc_2_purpose").val() && $("#calc_2_bank").val() && !$("#calc_2_bank").is("disabled"))) &&
+      $("#calc_2_term").val() &&
+      $("#calc_2_report").val() &&
+      $("#calc_2_copies").val()) {
 
-        var totalPrice = 4275;
+      if ($("#calc_2_purpose option:selected").data("prices")) {
 
-      } else if ($("#calc_2_location").val() == "2") {
+        var purposePriceArr = $("#calc_2_purpose option:selected").data("prices");
 
-        var totalPrice = 4750;
+        totalPrice += parseInt(purposePriceArr[$("#calc_2_location").val() - 1]);
+
+      } else {
+
+        var banksPriceArr = $("#calc_2_bank option:selected").data("prices");
+
+        totalPrice += parseInt(banksPriceArr[$("#calc_2_location").val() - 1]);
 
       }
 
-      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      totalPrice += (parseInt($("#calc_2_copies").val()) - 2)*500;
+      totalPrice += parseInt($("#calc_2_report option:selected").data("price"));
 
-      activeForm.find(".calc-result-term").html($("#calc_2_term").val());
-      activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_2_term").val(), ['день', 'дня', 'дней']));
+      if ($("#calc_2_term option:selected").data("factor")) {
+
+        totalPrice *= 2;
+
+        activeForm.find(".calc-result-term").html("Быстрая оценка в течение");
+        activeForm.find(".calc-result-term-units").html("дня");
+      } else {
+        activeForm.find(".calc-result-term").html($("#calc_2_term").val());
+        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_2_term").val(), ['день', 'дня', 'дней']));
+      }
+
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
@@ -845,64 +876,74 @@ function calcPrice(activeForm) {
 
   if (activeForm.data("index") == 3) {
 
-    if ($("#calc_3_area").val() && $("#calc_3_term").val()) {
+    var totalPrice = 0;
 
-      if ($("#calc_3_area").val() == "1") {
+    if ($("#calc_3_location").val() &&
+      $("#calc_3_area").val() &&
+      (($("#calc_3_purpose").val() && $("#calc_3_purpose option:selected").data("prices")) ||
+        ($("#calc_3_purpose").val() && $("#calc_3_bank").val() && !$("#calc_3_bank").is("disabled"))) &&
+      $("#calc_3_term").val() &&
+      $("#calc_3_report").val() &&
+      $("#calc_3_copies").val()) {
 
-        if ($("#calc_3_term").val() == "1") {
+      if ($("#calc_3_purpose option:selected").data("prices")) {
 
-          var totalPrice = 18000;
+        var purposePriceArr = $("#calc_3_purpose option:selected").data("prices");
 
-        } else if ($("#calc_3_term").val() == "3") {
+        totalPrice += parseInt(purposePriceArr[$("#calc_3_location").val() - 1]);
 
-          var totalPrice = 16000;
+      } else {
 
-        }
+        var banksPriceArr = $("#calc_3_bank option:selected").data("prices");
 
-      } else if ($("#calc_3_area").val() == "2") {
-
-        var totalPrice = 0;
-
-        var totalPriceButton = '<a href="#" class="btn btn-1" data-toggle="modal" data-target="#callbackModal">Узнать стоимость</a>';
+        totalPrice += parseInt(banksPriceArr[$("#calc_3_location").val() - 1]);
 
       }
 
+      totalPrice += (parseInt($("#calc_3_copies").val()) - 2)*500;
+      totalPrice += parseInt($("#calc_3_report option:selected").data("price"));
+
+      if ($("#calc_3_term option:selected").data("factor")) {
+
+        totalPrice *= 2;
+
+        activeForm.find(".calc-result-term").html("Быстрая оценка в течение");
+        activeForm.find(".calc-result-term-units").html("дня");
+      } else {
+        activeForm.find(".calc-result-term").html($("#calc_3_term").val());
+        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
+      }
+
+      if ($("#calc_3_term").val() == "1") {
+
+        totalPrice += 16000;
+
+      } else if ($("#calc_3_term").val() == "3") {
+
+        totalPrice += 18000;
+
+      }
+
+      if ($("#calc_3_area").val() == "2") {
+        totalPrice = 0;
+      }
 
       if (totalPrice != 0) {
 
         activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
 
-        activeForm.find(".calc-result-term").html($("#calc_3_term").val());
-        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
-
-        activeForm.find(".calc-form-result").slideDown(250);
-
-        $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
-        $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
-
-        $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_3_term").val());
-        $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
-
-        $(".item-discount, .calc-result-price-units").show();
-
       } else {
-
+        var totalPriceButton = '<a href="#" class="btn btn-1" data-toggle="modal" data-target="#callbackModal">Узнать стоимость</a>';
         activeForm.find(".calc-result-price").html(totalPriceButton);
-
-        activeForm.find(".calc-result-term").html($("#calc_3_term").val());
-        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
-
-        activeForm.find(".calc-form-result").slideDown(250);
-
-        $(".calc-form-result-vis").find(".calc-result-price").html(totalPriceButton);
-
-        $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_3_term").val());
-        $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
-
-        $(".item-discount, .calc-result-price-units").hide();
-
       }
 
+      activeForm.find(".calc-form-result").slideDown(250);
+
+      $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+
+      $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_3_term").val());
+      $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
 
     } else {
 
@@ -910,26 +951,60 @@ function calcPrice(activeForm) {
 
     }
 
+
   }
 
   if (activeForm.data("index") == 4) {
 
-    if ($("#calc_4_area").val() && $("#calc_4_term").val()) {
+    var totalPrice = 0;
 
-      if ($("#calc_4_area").val() == "1") {
+    if ($("#calc_4_location").val() &&
+      $("#calc_4_area").val() &&
+      (($("#calc_4_purpose").val() && $("#calc_4_purpose option:selected").data("prices")) ||
+        ($("#calc_4_purpose").val() && $("#calc_4_bank").val() && !$("#calc_4_bank").is("disabled"))) &&
+      $("#calc_4_term").val() &&
+      $("#calc_4_report").val() &&
+      $("#calc_4_copies").val()) {
 
-        var totalPrice = 10000;
+      if ($("#calc_4_purpose option:selected").data("prices")) {
 
-      } else if ($("#calc_4_area").val() == "2") {
+        var purposePriceArr = $("#calc_4_purpose option:selected").data("prices");
 
-        var totalPrice = 14000;
+        totalPrice += parseInt(purposePriceArr[$("#calc_4_location").val() - 1]);
+
+      } else {
+
+        var banksPriceArr = $("#calc_4_bank option:selected").data("prices");
+
+        totalPrice += parseInt(banksPriceArr[$("#calc_4_location").val() - 1]);
 
       }
 
-      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      totalPrice += (parseInt($("#calc_4_copies").val()) - 2)*500;
+      totalPrice += parseInt($("#calc_4_report option:selected").data("price"));
 
-      activeForm.find(".calc-result-term").html($("#calc_4_term").val());
-      activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_4_term").val(), ['день', 'дня', 'дней']));
+      if ($("#calc_4_area").val() == "1") {
+
+        totalPrice += 8000;
+
+      } else if ($("#calc_4_area").val() == "2") {
+
+        totalPrice += 12000;
+
+      }
+
+      if ($("#calc_4_term option:selected").data("factor")) {
+
+        totalPrice *= 2;
+
+        activeForm.find(".calc-result-term").html("Быстрая оценка в течение");
+        activeForm.find(".calc-result-term-units").html("дня");
+      } else {
+        activeForm.find(".calc-result-term").html($("#calc_4_term").val());
+        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_4_term").val(), ['день', 'дня', 'дней']));
+      }
+
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
@@ -948,17 +1023,33 @@ function calcPrice(activeForm) {
   }
 
   if (activeForm.data("index") == 5) {
+    
+    var totalPrice = 0;
 
-    if ($("#calc_5_location").val() && $("#calc_5_term").val()) {
+    if ($("#calc_5_location").val() && $("#calc_5_term").val() && $("#calc_5_report").val() && $("#calc_5_copies").val()) {
 
       if ($("#calc_5_location").val() == "1") {
 
         var totalPrice = 5700;
 
-      } else if ($("#calc_5_location").val() == "2") {
+      } else {
 
         var totalPrice = 6175;
 
+      }
+
+      totalPrice += (parseInt($("#calc_5_copies").val()) - 2)*500;
+      totalPrice += parseInt($("#calc_5_report option:selected").data("price"));
+
+      if ($("#calc_5_term option:selected").data("factor")) {
+
+        totalPrice *= 2;
+
+        activeForm.find(".calc-result-term").html("Быстрая оценка в течение");
+        activeForm.find(".calc-result-term-units").html("дня");
+      } else {
+        activeForm.find(".calc-result-term").html($("#calc_5_term").val());
+        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_5_term").val(), ['день', 'дня', 'дней']));
       }
 
       activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
@@ -984,16 +1075,32 @@ function calcPrice(activeForm) {
 
   if (activeForm.data("index") == 6) {
 
-    if ($("#calc_6_location").val() && $("#calc_6_term").val()) {
+    var totalPrice = 0;
+
+    if ($("#calc_6_location").val() && $("#calc_6_term").val() && $("#calc_6_report").val() && $("#calc_6_copies").val()) {
 
       if ($("#calc_6_location").val() == "1") {
 
         var totalPrice = 5700;
 
-      } else if ($("#calc_6_location").val() == "2") {
+      } else {
 
         var totalPrice = 6175;
 
+      }
+
+      totalPrice += (parseInt($("#calc_6_copies").val()) - 2)*500;
+      totalPrice += parseInt($("#calc_6_report option:selected").data("price"));
+
+      if ($("#calc_6_term option:selected").data("factor")) {
+
+        totalPrice *= 2;
+
+        activeForm.find(".calc-result-term").html("Быстрая оценка в течение");
+        activeForm.find(".calc-result-term-units").html("дня");
+      } else {
+        activeForm.find(".calc-result-term").html($("#calc_6_term").val());
+        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_6_term").val(), ['день', 'дня', 'дней']));
       }
 
       activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));

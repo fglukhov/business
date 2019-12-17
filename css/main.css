@@ -1937,6 +1937,9 @@ ul.footer-menu a {
   border-color: #423d62;
   background-color: #423d62; }
 
+.discount-info {
+  margin: 30px 0 0 0; }
+
 .realty-radios {
   display: flex;
   flex-wrap: nowrap;
@@ -2002,7 +2005,7 @@ ul.footer-menu a {
 .time-radios .row {
   margin: 0 -6px;
   flex-wrap: wrap;
-  justify-content: space-between; }
+  justify-content: flex-start; }
 
 .time-radio {
   width: 33.333%;
