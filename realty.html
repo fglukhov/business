@@ -147,6 +147,17 @@
                             </label>
                           </div>
                           <div class="realty-radio">
+                            <input type="radio" name="calc_realty" id="calc_realty_7" value="7">
+                            <label for="calc_realty_7">
+                              <div class="realty-radio-pic">
+                                <div class="realty-radio-img"><img src="images/ico-calc-realty-7.png"></div>
+                              </div>
+                              <div class="realty-radio-descr">
+                                <p>Строящееся жилье</p>
+                              </div>
+                            </label>
+                          </div>
+                          <div class="realty-radio">
                             <input type="radio" name="calc_realty" id="calc_realty_2" value="2">
                             <label for="calc_realty_2">
                               <div class="realty-radio-pic">
@@ -158,6 +169,17 @@
                             </label>
                           </div>
                           <div class="realty-radio">
+                            <input type="radio" name="calc_realty" id="calc_realty_8" value="8">
+                            <label for="calc_realty_8">
+                              <div class="realty-radio-pic">
+                                <div class="realty-radio-img"><img src="images/ico-calc-realty-8.png"></div>
+                              </div>
+                              <div class="realty-radio-descr">
+                                <p>Апартаменты</p>
+                              </div>
+                            </label>
+                          </div>
+                          <div class="realty-radio">
                             <input type="radio" name="calc_realty" id="calc_realty_3" value="3">
                             <label for="calc_realty_3">
                               <div class="realty-radio-pic">
@@ -165,6 +187,17 @@
                               </div>
                               <div class="realty-radio-descr">
                                 <p>Дом</p>
+                              </div>
+                            </label>
+                          </div>
+                          <div class="realty-radio">
+                            <input type="radio" name="calc_realty" id="calc_realty_9" value="9">
+                            <label for="calc_realty_9">
+                              <div class="realty-radio-pic">
+                                <div class="realty-radio-img"><img src="images/ico-calc-realty-9.png"></div>
+                              </div>
+                              <div class="realty-radio-descr">
+                                <p>Доля</p>
                               </div>
                             </label>
                           </div>
@@ -217,10 +250,6 @@
                                     <option value="5" data-other="true">Другие регионы</option>
                                   </select>
                                 </div>
-                                <div class="form-group">
-                                  <label for="calc_1_object_address">Адрес объекта</label>
-                                  <textarea name="calc_1_object_address" id="calc_1_object_address" rows="2" required></textarea>
-                                </div>
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="form-group">
@@ -230,12 +259,52 @@
                                     <option value="1" data-child="#calc_1_bank">Оценка для банка (ипотека, рефинансирование, для закладной)</option>
                                     <option value="2" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Справка о стоимости</option>
                                     <option value="3" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для нотариуса (вступление в наследство)</option>
-                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для суда</option>
+                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]" data-child="purpose_court">Оценка для суда</option>
                                     <option value="5" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка доли квартиры, комнаты</option>
                                     <option value="6" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для органов опеки</option>
                                     <option value="7" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для продажи</option>
                                     <option value="8" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Экспертное заключение о стоимости, справка (без осмотра объекта)</option>
                                     <option value="9" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка квартиры для других целей</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_1_object_address">Адрес объекта</label>
+                                  <textarea name="calc_1_object_address" id="calc_1_object_address" rows="2" required></textarea>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_1_bank">Для какого банка отчет?</label>
+                                  <select name="calc_1_bank" id="calc_1_bank" title="Выберите" data-parent="#calc_1_purpose" disabled required data-live-search="true">
+                                    <option value="" disabled selected></option>
+                                    <option value="3" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК»</option>
+                                    <option value="4" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО КБ «Москоммерцбанк»</option>
+                                    <option value="5" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Сбербанк»</option>
+                                    <option value="6" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Россельхозбанк»</option>
+                                    <option value="7" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Связь-Банк»</option>
+                                    <option value="9" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Райффайзенбанк»</option>
+                                    <option value="10" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «БАНК УРАЛСИБ»</option>
+                                    <option value="11" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк ГПБ»</option>
+                                    <option value="12" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «АК БАРС» БАНК</option>
+                                    <option value="13" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «ЮниКредит Банк»</option>
+                                    <option value="15" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «Возрождение»</option>
+                                    <option value="16" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МТС-Банк»</option>
+                                    <option value="17" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО БАНК «ВБРР»</option>
+                                    <option value="18" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО ТКБ БАНК</option>
+                                    <option value="19" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО "МИнБанк"</option>
+                                    <option value="20" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Совкомбанк»</option>
+                                    <option value="21" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «АЛЬФА-БАНК»</option>
+                                    <option value="22" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк БЖФ»</option>
+                                    <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
+                                    <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
+                                    <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
+                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">АО «КБ ДельтаКредит»</option>
+                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">ПАО «РОСБАНК»</option>
+                                    <option value="100" data-other="true">Иные банки</option>
                                   </select>
                                 </div>
                               </div>
@@ -283,37 +352,6 @@
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                  <label for="calc_1_bank">Для какого банка отчет?</label>
-                                  <select name="calc_1_bank" id="calc_1_bank" title="Выберите" data-parent="#calc_1_purpose" disabled required data-live-search="true">
-                                    <option value="" disabled selected></option>
-                                    <option value="3" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК»</option>
-                                    <option value="4" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО КБ «Москоммерцбанк»</option>
-                                    <option value="5" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Сбербанк»</option>
-                                    <option value="6" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Россельхозбанк»</option>
-                                    <option value="7" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Связь-Банк»</option>
-                                    <option value="9" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Райффайзенбанк»</option>
-                                    <option value="10" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «БАНК УРАЛСИБ»</option>
-                                    <option value="11" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк ГПБ»</option>
-                                    <option value="12" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «АК БАРС» БАНК</option>
-                                    <option value="13" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «ЮниКредит Банк»</option>
-                                    <option value="15" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «Возрождение»</option>
-                                    <option value="16" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МТС-Банк»</option>
-                                    <option value="17" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО БАНК «ВБРР»</option>
-                                    <option value="18" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО ТКБ БАНК</option>
-                                    <option value="19" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО "МИнБанк"</option>
-                                    <option value="20" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Совкомбанк»</option>
-                                    <option value="21" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «АЛЬФА-БАНК»</option>
-                                    <option value="22" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк БЖФ»</option>
-                                    <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
-                                    <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
-                                    <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
-                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>АО «КБ ДельтаКредит»</option>
-                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>ПАО «РОСБАНК»</option>
-                                  </select>
-                                </div>
-                              </div>
                             </div>
                             <div class="row">
                               <div class="col-12">
@@ -346,7 +384,196 @@
                                         <input type="radio" name="calc_1_time" id="calc_1_time_2">
                                         <label for="calc_1_time_2"><span>14:00-18:00</span></label>
                                       </div>
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_1_time" id="calc_1_time_3" value="time_other">
+                                        <label for="calc_1_time_3"><span>Другое время</span></label>
+                                        <div class="other-time">
+                                          <input class="time-mask" type="text" id="calc_1_other_time" name="calc_1_other_time">
+                                        </div>
+                                      </div>
                                     </div>
+                                  </div>
+                                  <div class="time-info">
+                                    <p>За осмотр ранее 10-00 и после 18:00 взимается дополнительная плата в размере 1000 руб. Ограничение с 8.00 до 21.00 без выходных.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="calc-form-result">
+                              <div class="calc-form-result-content">
+                                <div class="item">Стоимость отчета: <strong><span class="calc-result-price"></span> <span class="calc-result-price-units">руб.</span></strong></div>
+                                <div class="item">Срок выполнения: <strong><span class="calc-result-term"></span> раб. <span class="calc-result-term-units"></span>*</strong></div>
+                              </div>
+                              <div class="calc-form-result-footnote">
+                                <p>* &mdash; с момента предоставления полного пакета документов</p>
+                              </div>
+                            </div>
+                            <div class="calc-form-footer">
+                              <div class="btn btn-2 btn-forward"><span>Далее</span></div>
+                              <div class="discount-info">
+                                <p>При оформлении заявки через сайт предоставляется скидка в&nbsp;размере 5%</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="calc-realty-form active" data-index="7" style="display:block">
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_7_location">Местоположение</label>
+                                  <select class="calc-location" name="calc_7_location" id="calc_7_location" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1">Москва</option>
+                                    <option value="2">Московская область до 30 км от МКАД (МО) в пределах первого бетонного кольца</option>
+                                    <option value="3">Московская область от 30 км от МКАД (МО) в пределах второго бетонного кольца</option>
+                                    <option value="4">Московская область за пределами второго бетонного кольца</option>
+                                    <option value="5" data-other="true">Другие регионы</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_7_purpose">Для чего нужна оценка</label>
+                                  <select class="calc-purpose" name="calc_7_purpose" id="calc_7_purpose" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1" data-child="#calc_7_bank">Оценка для банка (ипотека, рефинансирование, для закладной)</option>
+                                    <option value="2" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Справка о стоимости</option>
+                                    <option value="3" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для нотариуса (вступление в наследство)</option>
+                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]" data-child="purpose_court">Оценка для суда</option>
+                                    <option value="5" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка доли квартиры, комнаты</option>
+                                    <option value="6" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для органов опеки</option>
+                                    <option value="7" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для продажи</option>
+                                    <option value="8" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Экспертное заключение о стоимости, справка (без осмотра объекта)</option>
+                                    <option value="9" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка квартиры для других целей</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_7_object_address">Адрес объекта</label>
+                                  <textarea name="calc_7_object_address" id="calc_7_object_address" rows="2" required></textarea>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_7_bank">Для какого банка отчет?</label>
+                                  <select name="calc_7_bank" id="calc_7_bank" title="Выберите" data-parent="#calc_7_purpose" disabled required data-live-search="true">
+                                    <option value="" disabled selected></option>
+                                    <option value="3" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК»</option>
+                                    <option value="4" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО КБ «Москоммерцбанк»</option>
+                                    <option value="5" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Сбербанк»</option>
+                                    <option value="6" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Россельхозбанк»</option>
+                                    <option value="7" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Связь-Банк»</option>
+                                    <option value="9" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Райффайзенбанк»</option>
+                                    <option value="10" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «БАНК УРАЛСИБ»</option>
+                                    <option value="11" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк ГПБ»</option>
+                                    <option value="12" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «АК БАРС» БАНК</option>
+                                    <option value="13" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «ЮниКредит Банк»</option>
+                                    <option value="15" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «Возрождение»</option>
+                                    <option value="16" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МТС-Банк»</option>
+                                    <option value="17" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО БАНК «ВБРР»</option>
+                                    <option value="18" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО ТКБ БАНК</option>
+                                    <option value="19" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО "МИнБанк"</option>
+                                    <option value="20" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Совкомбанк»</option>
+                                    <option value="21" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «АЛЬФА-БАНК»</option>
+                                    <option value="22" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк БЖФ»</option>
+                                    <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
+                                    <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
+                                    <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
+                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">АО «КБ ДельтаКредит»</option>
+                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">ПАО «РОСБАНК»</option>
+                                    <option value="100" data-other="true">Иные банки</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_7_area">Площадь квартиры</label>
+                                  <select name="calc_7_area" id="calc_7_area" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1">до 100 кв. м</option>
+                                    <option value="2">от 100 кв. м</option>
+                                    <option value="2" data-other="true">Элитная недвижимость</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_7_term">Срок выполнения работы</label>
+                                  <select name="calc_7_term" id="calc_7_term" title="Выберите">
+                                    <option value="1" selected>1 рабочий день</option>
+                                    <option value="2" data-factor="2">Быстрая оценка в течение дня</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_7_report">Нужна ли доставка отчета?</label>
+                                  <select name="calc_7_report" id="calc_7_report" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1" data-price="0">Самовывоз – бесплатно</option>
+                                    <option value="2" data-price="500" data-child="#calc_7_address">Стоимость доставки в банк в Москве – 500 рублей</option>
+                                    <option value="3" data-price="1000" data-child="#calc_7_address">Стоимость доставки в банк в Московской области – 1 000 рублей</option>
+                                    <option value="4" data-price="1000" data-child="#calc_7_address">Стоимость доставки в офис/дом в Москве – 1 000 рублей</option>
+                                    <option value="5" data-price="1500" data-child="#calc_7_address">Стоимость доставки в офис/дом в Московской области– 1 500 рублей</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <label for="calc_7_copies">Количество экземпляров</label>
+                                  <input class="numeric" type="text" name="calc_7_copies" id="calc_7_copies" min="2" max="15" value="2" required>
+                                  <div class="field-info">
+                                    <p>2 копии &mdash; бесплатно. Кажая следующая &mdash; +500 руб.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="form-group">
+                                  <label for="calc_7_address">Адрес для доставки отчета</label>
+                                  <input type="text" name="calc_7_address" id="calc_7_address" data-parent="#calc_7_report" required disabled>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_7_date">Желаемая дата осмотра</label>
+                                  <div class="input-group date input-date" id="calc_7_date_group" data-target-input="nearest">
+                                    <input class="datetimepicker-input" type="text" data-target="#calc_7_date_group" name="calc_7_date" id="calc_7_date" placeholder="дд.мм.гггг" required>
+                                    <div class="input-date-arrow" data-target="#calc_7_date_group" data-toggle="datetimepicker"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label>Желаемое время осмотра</label>
+                                  <div class="time-radios">
+                                    <div class="row">
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_7_time" id="calc_7_time_1" checked>
+                                        <label for="calc_7_time_1"><span>10:00-14:00</span></label>
+                                      </div>
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_7_time" id="calc_7_time_2">
+                                        <label for="calc_7_time_2"><span>14:00-18:00</span></label>
+                                      </div>
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_7_time" id="calc_7_time_3" value="time_other">
+                                        <label for="calc_7_time_3"><span>Другое время</span></label>
+                                        <div class="other-time">
+                                          <input class="time-mask" type="text" id="calc_7_other_time" name="calc_7_other_time">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="time-info">
+                                    <p>За осмотр ранее 10-00 и после 18:00 взимается дополнительная плата в размере 1000 руб. Ограничение с 8.00 до 21.00 без выходных.</p>
                                   </div>
                                 </div>
                               </div>
@@ -381,10 +608,6 @@
                                     <option value="5" data-other="true">Другие регионы</option>
                                   </select>
                                 </div>
-                                <div class="form-group">
-                                  <label for="calc_2_object_address">Адрес объекта</label>
-                                  <textarea name="calc_2_object_address" id="calc_2_object_address" rows="2" required></textarea>
-                                </div>
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="form-group">
@@ -394,7 +617,7 @@
                                     <option value="1" data-child="#calc_2_bank">Оценка для банка (ипотека, рефинансирование, для закладной)</option>
                                     <option value="2" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Справка о стоимости</option>
                                     <option value="3" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для нотариуса (вступление в наследство)</option>
-                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для суда</option>
+                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]" data-child="purpose_court">Оценка для суда</option>
                                     <option value="5" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка доли квартиры, комнаты</option>
                                     <option value="6" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для органов опеки</option>
                                     <option value="7" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для продажи</option>
@@ -407,43 +630,11 @@
                             <div class="row">
                               <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                  <label for="calc_2_report">Нужна ли доставка отчета?</label>
-                                  <select name="calc_2_report" id="calc_2_report" title="Выберите" required>
-                                    <option value="" disabled selected></option>
-                                    <option value="1" data-price="0">Самовывоз – бесплатно</option>
-                                    <option value="2" data-price="500" data-child="#calc_1_address">Стоимость доставки в банк в Москве – 500 рублей</option>
-                                    <option value="3" data-price="1000" data-child="#calc_1_address">Стоимость доставки в банк в Московской области – 1 000 рублей</option>
-                                    <option value="4" data-price="1000" data-child="#calc_1_address">Стоимость доставки в офис/дом в Москве – 1 000 рублей</option>
-                                    <option value="5" data-price="1500" data-child="#calc_1_address">Стоимость доставки в офис/дом в Московской области– 1 500 рублей</option>
-                                  </select>
-                                </div>
-                                <div class="form-group">
-                                  <label for="calc_2_copies">Количество экземпляров</label>
-                                  <select name="calc_2_copies" id="calc_2_copies">
-                                    <option value="2">2 - бесплатно</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                  </select>
+                                  <label for="calc_2_object_address">Адрес объекта</label>
+                                  <textarea name="calc_2_object_address" id="calc_2_object_address" rows="2" required></textarea>
                                 </div>
                               </div>
                               <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                  <label for="calc_2_term">Срок выполнения работы</label>
-                                  <select class="always-disabled" name="calc_2_term" id="calc_2_term" title="Выберите" disabled>
-                                    <option value="1" selected>1 рабочий день</option>
-                                  </select>
-                                </div>
                                 <div class="form-group">
                                   <label for="calc_2_bank">Для какого банка отчет?</label>
                                   <select name="calc_2_bank" id="calc_2_bank" title="Выберите" data-parent="#calc_2_purpose" disabled required data-live-search="true">
@@ -469,8 +660,39 @@
                                     <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
                                     <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
                                     <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
-                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>АО «КБ ДельтаКредит»</option>
-                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>ПАО «РОСБАНК»</option>
+                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">АО «КБ ДельтаКредит»</option>
+                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">ПАО «РОСБАНК»</option>
+                                    <option value="100" data-other="true">Иные банки</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_2_report">Нужна ли доставка отчета?</label>
+                                  <select name="calc_2_report" id="calc_2_report" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1" data-price="0">Самовывоз – бесплатно</option>
+                                    <option value="2" data-price="500" data-child="#calc_1_address">Стоимость доставки в банк в Москве – 500 рублей</option>
+                                    <option value="3" data-price="1000" data-child="#calc_1_address">Стоимость доставки в банк в Московской области – 1 000 рублей</option>
+                                    <option value="4" data-price="1000" data-child="#calc_1_address">Стоимость доставки в офис/дом в Москве – 1 000 рублей</option>
+                                    <option value="5" data-price="1500" data-child="#calc_1_address">Стоимость доставки в офис/дом в Московской области– 1 500 рублей</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <label for="calc_2_copies">Количество экземпляров</label>
+                                  <input class="numeric" type="text" name="calc_2_copies" id="calc_2_copies" min="2" max="15" value="2" required>
+                                  <div class="field-info">
+                                    <p>2 копии &mdash; бесплатно. Кажая следующая &mdash; +500 руб.</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_2_term">Срок выполнения работы</label>
+                                  <select class="always-disabled" name="calc_2_term" id="calc_2_term" title="Выберите" disabled>
+                                    <option value="1" selected>1 рабочий день</option>
                                   </select>
                                 </div>
                               </div>
@@ -506,7 +728,17 @@
                                         <input type="radio" name="calc_2_time" id="calc_2_time_2">
                                         <label for="calc_2_time_2"><span>14:00-18:00</span></label>
                                       </div>
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_2_time" id="calc_2_time_3" value="time_other">
+                                        <label for="calc_2_time_3"><span>Другое время</span></label>
+                                        <div class="other-time">
+                                          <input class="time-mask" type="text" id="calc_2_other_time" name="calc_2_other_time">
+                                        </div>
+                                      </div>
                                     </div>
+                                  </div>
+                                  <div class="time-info">
+                                    <p>За осмотр ранее 10-00 и после 18:00 взимается дополнительная плата в размере 1000 руб. Ограничение с 8.00 до 21.00 без выходных.</p>
                                   </div>
                                 </div>
                               </div>
@@ -538,10 +770,6 @@
                                     <option value="5" data-other="true">Другие регионы</option>
                                   </select>
                                 </div>
-                                <div class="form-group">
-                                  <label for="calc_3_object_address">Адрес объекта</label>
-                                  <textarea name="calc_3_object_address" id="calc_3_object_address" rows="2" required></textarea>
-                                </div>
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="form-group">
@@ -551,10 +779,50 @@
                                     <option value="1" data-child="#calc_3_bank">Оценка для банка (ипотека, рефинансирование, для закладной)</option>
                                     <option value="2" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Справка о стоимости</option>
                                     <option value="3" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для нотариуса (вступление в наследство)</option>
-                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для суда</option>
+                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]" data-child="purpose_court">Оценка для суда</option>
                                     <option value="6" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для органов опеки</option>
                                     <option value="7" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для продажи</option>
                                     <option value="8" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Экспертное заключение о стоимости, справка (без осмотра объекта)</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_3_object_address">Адрес объекта</label>
+                                  <textarea name="calc_3_object_address" id="calc_3_object_address" rows="2" required></textarea>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_3_bank">Для какого банка отчет?</label>
+                                  <select name="calc_3_bank" id="calc_3_bank" title="Выберите" data-parent="#calc_3_purpose" disabled required data-live-search="true">
+                                    <option value="" disabled selected></option>
+                                    <option value="3" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК»</option>
+                                    <option value="4" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО КБ «Москоммерцбанк»</option>
+                                    <option value="5" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Сбербанк»</option>
+                                    <option value="6" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Россельхозбанк»</option>
+                                    <option value="7" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Связь-Банк»</option>
+                                    <option value="9" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Райффайзенбанк»</option>
+                                    <option value="10" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «БАНК УРАЛСИБ»</option>
+                                    <option value="11" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк ГПБ»</option>
+                                    <option value="12" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «АК БАРС» БАНК</option>
+                                    <option value="13" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «ЮниКредит Банк»</option>
+                                    <option value="15" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «Возрождение»</option>
+                                    <option value="16" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МТС-Банк»</option>
+                                    <option value="17" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО БАНК «ВБРР»</option>
+                                    <option value="18" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО ТКБ БАНК</option>
+                                    <option value="19" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО "МИнБанк"</option>
+                                    <option value="20" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Совкомбанк»</option>
+                                    <option value="21" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «АЛЬФА-БАНК»</option>
+                                    <option value="22" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк БЖФ»</option>
+                                    <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
+                                    <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
+                                    <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
+                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">АО «КБ ДельтаКредит»</option>
+                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">ПАО «РОСБАНК»</option>
+                                    <option value="100" data-other="true">Иные банки</option>
                                   </select>
                                 </div>
                               </div>
@@ -597,53 +865,10 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="calc_3_copies">Количество экземпляров</label>
-                                  <select name="calc_3_copies" id="calc_3_copies">
-                                    <option value="2">2 - бесплатно</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                  <label for="calc_3_bank">Для какого банка отчет?</label>
-                                  <select name="calc_3_bank" id="calc_3_bank" title="Выберите" data-parent="#calc_3_purpose" disabled required data-live-search="true">
-                                    <option value="" disabled selected></option>
-                                    <option value="3" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК»</option>
-                                    <option value="4" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО КБ «Москоммерцбанк»</option>
-                                    <option value="5" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Сбербанк»</option>
-                                    <option value="6" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Россельхозбанк»</option>
-                                    <option value="7" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Связь-Банк»</option>
-                                    <option value="9" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Райффайзенбанк»</option>
-                                    <option value="10" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «БАНК УРАЛСИБ»</option>
-                                    <option value="11" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк ГПБ»</option>
-                                    <option value="12" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «АК БАРС» БАНК</option>
-                                    <option value="13" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «ЮниКредит Банк»</option>
-                                    <option value="15" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «Возрождение»</option>
-                                    <option value="16" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МТС-Банк»</option>
-                                    <option value="17" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО БАНК «ВБРР»</option>
-                                    <option value="18" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО ТКБ БАНК</option>
-                                    <option value="19" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО "МИнБанк"</option>
-                                    <option value="20" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Совкомбанк»</option>
-                                    <option value="21" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «АЛЬФА-БАНК»</option>
-                                    <option value="22" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк БЖФ»</option>
-                                    <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
-                                    <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
-                                    <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
-                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>АО «КБ ДельтаКредит»</option>
-                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>ПАО «РОСБАНК»</option>
-                                  </select>
+                                  <input class="numeric" type="text" name="calc_3_copies" id="calc_3_copies" min="2" max="15" value="2" required>
+                                  <div class="field-info">
+                                    <p>2 копии &mdash; бесплатно. Кажая следующая &mdash; +500 руб.</p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -678,7 +903,17 @@
                                         <input type="radio" name="calc_3_time" id="calc_3_time_2">
                                         <label for="calc_3_time_2"><span>14:00-18:00</span></label>
                                       </div>
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_3_time" id="calc_3_time_3" value="time_other">
+                                        <label for="calc_3_time_3"><span>Другое время</span></label>
+                                        <div class="other-time">
+                                          <input class="time-mask" type="text" id="calc_3_other_time" name="calc_3_other_time">
+                                        </div>
+                                      </div>
                                     </div>
+                                  </div>
+                                  <div class="time-info">
+                                    <p>За осмотр ранее 10-00 и после 18:00 взимается дополнительная плата в размере 1000 руб. Ограничение с 8.00 до 21.00 без выходных.</p>
                                   </div>
                                 </div>
                               </div>
@@ -696,6 +931,188 @@
                               <div class="btn btn-2 btn-forward"><span>Далее</span></div>
                             </div>
                           </div>
+                          <div class="calc-realty-form" data-index="8">
+                            <p>Оценка нежилого помещения осущест. только при условии, что помещение входит в состав Жилого Комплекса.</p>
+                          </div>
+                          <div class="calc-realty-form active" data-index="9" style="display:block">
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_9_location">Местоположение</label>
+                                  <select class="calc-location" name="calc_9_location" id="calc_9_location" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1">Москва</option>
+                                    <option value="2">Московская область до 30 км от МКАД (МО) в пределах первого бетонного кольца</option>
+                                    <option value="3">Московская область от 30 км от МКАД (МО) в пределах второго бетонного кольца</option>
+                                    <option value="4">Московская область за пределами второго бетонного кольца</option>
+                                    <option value="5" data-other="true">Другие регионы</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_9_purpose">Для чего нужна оценка</label>
+                                  <select class="calc-purpose" name="calc_9_purpose" id="calc_9_purpose" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1" data-child="#calc_9_bank">Оценка для банка (ипотека, рефинансирование, для закладной)</option>
+                                    <option value="2" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Справка о стоимости</option>
+                                    <option value="3" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для нотариуса (вступление в наследство)</option>
+                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]" data-child="purpose_court">Оценка для суда</option>
+                                    <option value="5" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка доли квартиры, комнаты</option>
+                                    <option value="6" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для органов опеки</option>
+                                    <option value="7" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для продажи</option>
+                                    <option value="8" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Экспертное заключение о стоимости, справка (без осмотра объекта)</option>
+                                    <option value="9" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка квартиры для других целей</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_9_object_address">Адрес объекта</label>
+                                  <textarea name="calc_9_object_address" id="calc_9_object_address" rows="2" required></textarea>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_9_bank">Для какого банка отчет?</label>
+                                  <select name="calc_9_bank" id="calc_9_bank" title="Выберите" data-parent="#calc_9_purpose" disabled required data-live-search="true">
+                                    <option value="" disabled selected></option>
+                                    <option value="3" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК»</option>
+                                    <option value="4" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО КБ «Москоммерцбанк»</option>
+                                    <option value="5" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Сбербанк»</option>
+                                    <option value="6" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Россельхозбанк»</option>
+                                    <option value="7" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Связь-Банк»</option>
+                                    <option value="9" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Райффайзенбанк»</option>
+                                    <option value="10" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «БАНК УРАЛСИБ»</option>
+                                    <option value="11" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк ГПБ»</option>
+                                    <option value="12" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «АК БАРС» БАНК</option>
+                                    <option value="13" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «ЮниКредит Банк»</option>
+                                    <option value="15" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «Возрождение»</option>
+                                    <option value="16" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МТС-Банк»</option>
+                                    <option value="17" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО БАНК «ВБРР»</option>
+                                    <option value="18" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО ТКБ БАНК</option>
+                                    <option value="19" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО "МИнБанк"</option>
+                                    <option value="20" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Совкомбанк»</option>
+                                    <option value="21" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «АЛЬФА-БАНК»</option>
+                                    <option value="22" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк БЖФ»</option>
+                                    <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
+                                    <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
+                                    <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
+                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">АО «КБ ДельтаКредит»</option>
+                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">ПАО «РОСБАНК»</option>
+                                    <option value="100" data-other="true">Иные банки</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_9_area">Площадь квартиры</label>
+                                  <select name="calc_9_area" id="calc_9_area" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1">до 100 кв. м</option>
+                                    <option value="2">от 100 кв. м</option>
+                                    <option value="2" data-other="true">Элитная недвижимость</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_9_term">Срок выполнения работы</label>
+                                  <select name="calc_9_term" id="calc_9_term" title="Выберите">
+                                    <option value="1" selected>1 рабочий день</option>
+                                    <option value="2" data-factor="2">Быстрая оценка в течение дня</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_9_report">Нужна ли доставка отчета?</label>
+                                  <select name="calc_9_report" id="calc_9_report" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1" data-price="0">Самовывоз – бесплатно</option>
+                                    <option value="2" data-price="500" data-child="#calc_9_address">Стоимость доставки в банк в Москве – 500 рублей</option>
+                                    <option value="3" data-price="1000" data-child="#calc_9_address">Стоимость доставки в банк в Московской области – 1 000 рублей</option>
+                                    <option value="4" data-price="1000" data-child="#calc_9_address">Стоимость доставки в офис/дом в Москве – 1 000 рублей</option>
+                                    <option value="5" data-price="1500" data-child="#calc_9_address">Стоимость доставки в офис/дом в Московской области– 1 500 рублей</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <label for="calc_9_copies">Количество экземпляров</label>
+                                  <input class="numeric" type="text" name="calc_9_copies" id="calc_9_copies" min="2" max="15" value="2" required>
+                                  <div class="field-info">
+                                    <p>2 копии &mdash; бесплатно. Кажая следующая &mdash; +500 руб.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12">
+                                <div class="form-group">
+                                  <label for="calc_9_address">Адрес для доставки отчета</label>
+                                  <input type="text" name="calc_9_address" id="calc_9_address" data-parent="#calc_9_report" required disabled>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_9_date">Желаемая дата осмотра</label>
+                                  <div class="input-group date input-date" id="calc_9_date_group" data-target-input="nearest">
+                                    <input class="datetimepicker-input" type="text" data-target="#calc_9_date_group" name="calc_9_date" id="calc_9_date" placeholder="дд.мм.гггг" required>
+                                    <div class="input-date-arrow" data-target="#calc_9_date_group" data-toggle="datetimepicker"></div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label>Желаемое время осмотра</label>
+                                  <div class="time-radios">
+                                    <div class="row">
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_9_time" id="calc_9_time_1" checked>
+                                        <label for="calc_9_time_1"><span>10:00-14:00</span></label>
+                                      </div>
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_9_time" id="calc_9_time_2">
+                                        <label for="calc_9_time_2"><span>14:00-18:00</span></label>
+                                      </div>
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_9_time" id="calc_9_time_3" value="time_other">
+                                        <label for="calc_9_time_3"><span>Другое время</span></label>
+                                        <div class="other-time">
+                                          <input class="time-mask" type="text" id="calc_9_other_time" name="calc_9_other_time">
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="time-info">
+                                    <p>За осмотр ранее 10-00 и после 18:00 взимается дополнительная плата в размере 1000 руб. Ограничение с 8.00 до 21.00 без выходных.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="calc-form-result">
+                              <div class="calc-form-result-content">
+                                <div class="item">Стоимость отчета: <strong><span class="calc-result-price"></span> <span class="calc-result-price-units">руб.</span></strong></div>
+                                <div class="item">Срок выполнения: <strong><span class="calc-result-term"></span> раб. <span class="calc-result-term-units"></span>*</strong></div>
+                              </div>
+                              <div class="calc-form-result-footnote">
+                                <p>* &mdash; с момента предоставления полного пакета документов</p>
+                              </div>
+                            </div>
+                            <div class="calc-form-footer">
+                              <div class="btn btn-2 btn-forward"><span>Далее</span></div>
+                              <div class="discount-info">
+                                <p>При оформлении заявки через сайт предоставляется скидка в&nbsp;размере 5%</p>
+                              </div>
+                            </div>
+                          </div>
                           <div class="calc-realty-form" data-index="4">
                             <div class="row">
                               <div class="col-12 col-md-6">
@@ -710,10 +1127,6 @@
                                     <option value="5" data-other="true">Другие регионы</option>
                                   </select>
                                 </div>
-                                <div class="form-group">
-                                  <label for="calc_4_object_address">Адрес объекта</label>
-                                  <textarea name="calc_4_object_address" id="calc_4_object_address" rows="2" required></textarea>
-                                </div>
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="form-group">
@@ -723,9 +1136,49 @@
                                     <option value="1" data-child="#calc_4_bank">Оценка для банка (ипотека, рефинансирование, для закладной)</option>
                                     <option value="2" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Справка о стоимости</option>
                                     <option value="3" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для нотариуса (вступление в наследство)</option>
-                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для суда</option>
+                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]" data-child="purpose_court">Оценка для суда</option>
                                     <option value="7" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для продажи</option>
                                     <option value="8" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Экспертное заключение о стоимости, справка (без осмотра объекта)</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_4_object_address">Адрес объекта</label>
+                                  <textarea name="calc_4_object_address" id="calc_4_object_address" rows="2" required></textarea>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_4_bank">Для какого банка отчет?</label>
+                                  <select name="calc_4_bank" id="calc_4_bank" title="Выберите" data-parent="#calc_4_purpose" disabled required data-live-search="true">
+                                    <option value="" disabled selected></option>
+                                    <option value="3" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК»</option>
+                                    <option value="4" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО КБ «Москоммерцбанк»</option>
+                                    <option value="5" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Сбербанк»</option>
+                                    <option value="6" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Россельхозбанк»</option>
+                                    <option value="7" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Связь-Банк»</option>
+                                    <option value="9" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Райффайзенбанк»</option>
+                                    <option value="10" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «БАНК УРАЛСИБ»</option>
+                                    <option value="11" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк ГПБ»</option>
+                                    <option value="12" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «АК БАРС» БАНК</option>
+                                    <option value="13" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «ЮниКредит Банк»</option>
+                                    <option value="15" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «Возрождение»</option>
+                                    <option value="16" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МТС-Банк»</option>
+                                    <option value="17" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО БАНК «ВБРР»</option>
+                                    <option value="18" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО ТКБ БАНК</option>
+                                    <option value="19" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО "МИнБанк"</option>
+                                    <option value="20" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Совкомбанк»</option>
+                                    <option value="21" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «АЛЬФА-БАНК»</option>
+                                    <option value="22" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк БЖФ»</option>
+                                    <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
+                                    <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
+                                    <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
+                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">АО «КБ ДельтаКредит»</option>
+                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">ПАО «РОСБАНК»</option>
+                                    <option value="100" data-other="true">Иные банки</option>
                                   </select>
                                 </div>
                               </div>
@@ -766,53 +1219,10 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="calc_4_copies">Количество экземпляров</label>
-                                  <select name="calc_4_copies" id="calc_4_copies">
-                                    <option value="2">2 - бесплатно</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                  <label for="calc_4_bank">Для какого банка отчет?</label>
-                                  <select name="calc_4_bank" id="calc_4_bank" title="Выберите" data-parent="#calc_4_purpose" disabled required data-live-search="true">
-                                    <option value="" disabled selected></option>
-                                    <option value="3" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МОСКОВСКИЙ КРЕДИТНЫЙ БАНК»</option>
-                                    <option value="4" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО КБ «Москоммерцбанк»</option>
-                                    <option value="5" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Сбербанк»</option>
-                                    <option value="6" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Россельхозбанк»</option>
-                                    <option value="7" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Связь-Банк»</option>
-                                    <option value="9" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Райффайзенбанк»</option>
-                                    <option value="10" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «БАНК УРАЛСИБ»</option>
-                                    <option value="11" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк ГПБ»</option>
-                                    <option value="12" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «АК БАРС» БАНК</option>
-                                    <option value="13" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «ЮниКредит Банк»</option>
-                                    <option value="15" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «Возрождение»</option>
-                                    <option value="16" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «МТС-Банк»</option>
-                                    <option value="17" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО БАНК «ВБРР»</option>
-                                    <option value="18" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО ТКБ БАНК</option>
-                                    <option value="19" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО "МИнБанк"</option>
-                                    <option value="20" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО «Совкомбанк»</option>
-                                    <option value="21" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «АЛЬФА-БАНК»</option>
-                                    <option value="22" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">АО «Банк БЖФ»</option>
-                                    <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
-                                    <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
-                                    <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
-                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>АО «КБ ДельтаКредит»</option>
-                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>ПАО «РОСБАНК»</option>
-                                  </select>
+                                  <input class="numeric" type="text" name="calc_4_copies" id="calc_4_copies" min="2" max="15" value="2" required>
+                                  <div class="field-info">
+                                    <p>2 копии &mdash; бесплатно. Кажая следующая &mdash; +500 руб.</p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -847,7 +1257,17 @@
                                         <input type="radio" name="calc_4_time" id="calc_4_time_2">
                                         <label for="calc_4_time_2"><span>14:00-18:00</span></label>
                                       </div>
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_4_time" id="calc_4_time_3" value="time_other">
+                                        <label for="calc_4_time_3"><span>Другое время</span></label>
+                                        <div class="other-time">
+                                          <input class="time-mask" type="text" id="calc_4_other_time" name="calc_4_other_time">
+                                        </div>
+                                      </div>
                                     </div>
+                                  </div>
+                                  <div class="time-info">
+                                    <p>За осмотр ранее 10-00 и после 18:00 взимается дополнительная плата в размере 1000 руб. Ограничение с 8.00 до 21.00 без выходных.</p>
                                   </div>
                                 </div>
                               </div>
@@ -879,10 +1299,6 @@
                                     <option value="5" data-other="true">Другие регионы</option>
                                   </select>
                                 </div>
-                                <div class="form-group">
-                                  <label for="calc_5_object_address">Адрес объекта</label>
-                                  <textarea name="calc_5_object_address" id="calc_5_object_address" rows="2" required></textarea>
-                                </div>
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="form-group">
@@ -892,7 +1308,7 @@
                                     <option value="1" data-child="#calc_5_bank">Оценка для банка (ипотека, рефинансирование, для закладной)</option>
                                     <option value="2" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Справка о стоимости</option>
                                     <option value="3" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для нотариуса (вступление в наследство)</option>
-                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для суда</option>
+                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]" data-child="purpose_court">Оценка для суда</option>
                                     <option value="7" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для продажи</option>
                                     <option value="8" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Экспертное заключение о стоимости, справка (без осмотра объекта)</option>
                                   </select>
@@ -902,44 +1318,11 @@
                             <div class="row">
                               <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                  <label for="calc_5_report">Нужна ли доставка отчета?</label>
-                                  <select name="calc_5_report" id="calc_5_report" title="Выберите" required>
-                                    <option value="" disabled selected></option>
-                                    <option value="1" data-price="0">Самовывоз – бесплатно</option>
-                                    <option value="2" data-price="500" data-child="#calc_1_address">Стоимость доставки в банк в Москве – 500 рублей</option>
-                                    <option value="3" data-price="1000" data-child="#calc_1_address">Стоимость доставки в банк в Московской области – 1 000 рублей</option>
-                                    <option value="4" data-price="1000" data-child="#calc_1_address">Стоимость доставки в офис/дом в Москве – 1 000 рублей</option>
-                                    <option value="5" data-price="1500" data-child="#calc_1_address">Стоимость доставки в офис/дом в Московской области– 1 500 рублей</option>
-                                  </select>
-                                </div>
-                                <div class="form-group">
-                                  <label for="calc_5_copies">Количество экземпляров</label>
-                                  <select name="calc_5_copies" id="calc_5_copies">
-                                    <option value="2">2 - бесплатно</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                  </select>
+                                  <label for="calc_5_object_address">Адрес объекта</label>
+                                  <textarea name="calc_5_object_address" id="calc_5_object_address" rows="2" required></textarea>
                                 </div>
                               </div>
                               <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                  <label for="calc_5_term">Срок выполнения работы</label>
-                                  <select name="calc_5_term" id="calc_5_term" title="Выберите">
-                                    <option value="1" selected>1 рабочий день</option>
-                                    <option value="3" selected>3 рабочих дня</option>
-                                  </select>
-                                </div>
                                 <div class="form-group">
                                   <label for="calc_5_bank">Для какого банка отчет?</label>
                                   <select name="calc_5_bank" id="calc_5_bank" title="Выберите" data-parent="#calc_5_purpose" disabled required data-live-search="true">
@@ -965,8 +1348,40 @@
                                     <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
                                     <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
                                     <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
-                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>АО «КБ ДельтаКредит»</option>
-                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>ПАО «РОСБАНК»</option>
+                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">АО «КБ ДельтаКредит»</option>
+                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">ПАО «РОСБАНК»</option>
+                                    <option value="100" data-other="true">Иные банки</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_5_report">Нужна ли доставка отчета?</label>
+                                  <select name="calc_5_report" id="calc_5_report" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1" data-price="0">Самовывоз – бесплатно</option>
+                                    <option value="2" data-price="500" data-child="#calc_1_address">Стоимость доставки в банк в Москве – 500 рублей</option>
+                                    <option value="3" data-price="1000" data-child="#calc_1_address">Стоимость доставки в банк в Московской области – 1 000 рублей</option>
+                                    <option value="4" data-price="1000" data-child="#calc_1_address">Стоимость доставки в офис/дом в Москве – 1 000 рублей</option>
+                                    <option value="5" data-price="1500" data-child="#calc_1_address">Стоимость доставки в офис/дом в Московской области– 1 500 рублей</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <label for="calc_5_copies">Количество экземпляров</label>
+                                  <input class="numeric" type="text" name="calc_5_copies" id="calc_5_copies" min="2" max="15" value="2" required>
+                                  <div class="field-info">
+                                    <p>2 копии &mdash; бесплатно. Кажая следующая &mdash; +500 руб.</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_5_term">Срок выполнения работы</label>
+                                  <select name="calc_5_term" id="calc_5_term" title="Выберите">
+                                    <option value="1" selected>1 рабочий день</option>
+                                    <option value="3" selected>3 рабочих дня</option>
                                   </select>
                                 </div>
                               </div>
@@ -1002,7 +1417,17 @@
                                         <input type="radio" name="calc_5_time" id="calc_5_time_2">
                                         <label for="calc_5_time_2"><span>14:00-18:00</span></label>
                                       </div>
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_5_time" id="calc_5_time_3" value="time_other">
+                                        <label for="calc_5_time_3"><span>Другое время</span></label>
+                                        <div class="other-time">
+                                          <input class="time-mask" type="text" id="calc_5_other_time" name="calc_5_other_time">
+                                        </div>
+                                      </div>
                                     </div>
+                                  </div>
+                                  <div class="time-info">
+                                    <p>За осмотр ранее 10-00 и после 18:00 взимается дополнительная плата в размере 1000 руб. Ограничение с 8.00 до 21.00 без выходных.</p>
                                   </div>
                                 </div>
                               </div>
@@ -1034,10 +1459,6 @@
                                     <option value="5" data-other="true">Другие регионы</option>
                                   </select>
                                 </div>
-                                <div class="form-group">
-                                  <label for="calc_6_object_address">Адрес объекта</label>
-                                  <textarea name="calc_6_object_address" id="calc_6_object_address" rows="2" required></textarea>
-                                </div>
                               </div>
                               <div class="col-12 col-md-6">
                                 <div class="form-group">
@@ -1047,7 +1468,7 @@
                                     <option value="1" data-child="#calc_6_bank">Оценка для банка (ипотека, рефинансирование, для закладной)</option>
                                     <option value="2" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Справка о стоимости</option>
                                     <option value="3" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для нотариуса (вступление в наследство)</option>
-                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для суда</option>
+                                    <option value="4" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]" data-child="purpose_court">Оценка для суда</option>
                                     <option value="7" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Оценка для продажи</option>
                                     <option value="8" data-prices="[&quot;4000&quot;,&quot;4500&quot;,&quot;5500&quot;,&quot;7500&quot;]">Экспертное заключение о стоимости, справка (без осмотра объекта)</option>
                                   </select>
@@ -1057,44 +1478,11 @@
                             <div class="row">
                               <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                  <label for="calc_6_report">Нужна ли доставка отчета?</label>
-                                  <select name="calc_6_report" id="calc_6_report" title="Выберите" required>
-                                    <option value="" disabled selected></option>
-                                    <option value="1" data-price="0">Самовывоз – бесплатно</option>
-                                    <option value="2" data-price="500" data-child="#calc_1_address">Стоимость доставки в банк в Москве – 500 рублей</option>
-                                    <option value="3" data-price="1000" data-child="#calc_1_address">Стоимость доставки в банк в Московской области – 1 000 рублей</option>
-                                    <option value="4" data-price="1000" data-child="#calc_1_address">Стоимость доставки в офис/дом в Москве – 1 000 рублей</option>
-                                    <option value="5" data-price="1500" data-child="#calc_1_address">Стоимость доставки в офис/дом в Московской области– 1 500 рублей</option>
-                                  </select>
-                                </div>
-                                <div class="form-group">
-                                  <label for="calc_6_copies">Количество экземпляров</label>
-                                  <select name="calc_6_copies" id="calc_6_copies">
-                                    <option value="2">2 - бесплатно</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                  </select>
+                                  <label for="calc_6_object_address">Адрес объекта</label>
+                                  <textarea name="calc_6_object_address" id="calc_6_object_address" rows="2" required></textarea>
                                 </div>
                               </div>
                               <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                  <label for="calc_6_term">Срок выполнения работы</label>
-                                  <select name="calc_6_term" id="calc_6_term" title="Выберите">
-                                    <option value="1" selected>1 рабочий день</option>
-                                    <option value="3" selected>3 рабочих дня</option>
-                                  </select>
-                                </div>
                                 <div class="form-group">
                                   <label for="calc_6_bank">Для какого банка отчет?</label>
                                   <select name="calc_6_bank" id="calc_6_bank" title="Выберите" data-parent="#calc_6_purpose" disabled required data-live-search="true">
@@ -1120,8 +1508,40 @@
                                     <option value="23" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО АКБ «Металлинвестбанк»</option>
                                     <option value="24" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">ПАО Банк «ФК Открытие»</option>
                                     <option value="25" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]">Банк ДОМ.РФ</option>
-                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>АО «КБ ДельтаКредит»</option>
-                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="#purpose_court" disabled>ПАО «РОСБАНК»</option>
+                                    <option value="1" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">АО «КБ ДельтаКредит»</option>
+                                    <option value="2" data-prices="[&quot;4500&quot;,&quot;5000&quot;,&quot;6000&quot;,&quot;7000&quot;]" data-rel="purpose_court">ПАО «РОСБАНК»</option>
+                                    <option value="100" data-other="true">Иные банки</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_6_report">Нужна ли доставка отчета?</label>
+                                  <select name="calc_6_report" id="calc_6_report" title="Выберите" required>
+                                    <option value="" disabled selected></option>
+                                    <option value="1" data-price="0">Самовывоз – бесплатно</option>
+                                    <option value="2" data-price="500" data-child="#calc_1_address">Стоимость доставки в банк в Москве – 500 рублей</option>
+                                    <option value="3" data-price="1000" data-child="#calc_1_address">Стоимость доставки в банк в Московской области – 1 000 рублей</option>
+                                    <option value="4" data-price="1000" data-child="#calc_1_address">Стоимость доставки в офис/дом в Москве – 1 000 рублей</option>
+                                    <option value="5" data-price="1500" data-child="#calc_1_address">Стоимость доставки в офис/дом в Московской области– 1 500 рублей</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <label for="calc_6_copies">Количество экземпляров</label>
+                                  <input class="numeric" type="text" name="calc_6_copies" id="calc_6_copies" min="2" max="15" value="2" required>
+                                  <div class="field-info">
+                                    <p>2 копии &mdash; бесплатно. Кажая следующая &mdash; +500 руб.</p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-12 col-md-6">
+                                <div class="form-group">
+                                  <label for="calc_6_term">Срок выполнения работы</label>
+                                  <select name="calc_6_term" id="calc_6_term" title="Выберите">
+                                    <option value="1" selected>1 рабочий день</option>
+                                    <option value="3" selected>3 рабочих дня</option>
                                   </select>
                                 </div>
                               </div>
@@ -1157,7 +1577,17 @@
                                         <input type="radio" name="calc_6_time" id="calc_6_time_2">
                                         <label for="calc_6_time_2"><span>14:00-18:00</span></label>
                                       </div>
+                                      <div class="time-radio">
+                                        <input type="radio" name="calc_6_time" id="calc_6_time_3" value="time_other">
+                                        <label for="calc_6_time_3"><span>Другое время</span></label>
+                                        <div class="other-time">
+                                          <input class="time-mask" type="text" id="calc_6_other_time" name="calc_6_other_time">
+                                        </div>
+                                      </div>
                                     </div>
+                                  </div>
+                                  <div class="time-info">
+                                    <p>За осмотр ранее 10-00 и после 18:00 взимается дополнительная плата в размере 1000 руб. Ограничение с 8.00 до 21.00 без выходных.</p>
                                   </div>
                                 </div>
                               </div>
@@ -1566,6 +1996,7 @@
       <script src="js/moment-with-locales.js"></script>
       <script src="js/tempusdominus/tempusdominus-bootstrap-4.min.js"></script>
       <script src="js/bootstrap3-typeahead.min.js"></script>
+      <script src="js/jquery.inputmask.min.js"></script>
       <script src="js/main.js"></script>
     </div>
   </body>

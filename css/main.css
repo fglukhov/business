@@ -2217,3 +2217,13 @@ ul.footer-menu a {
 
 .hidden-important {
   display: none !important; }
+
+.calc-form input.numeric {
+  max-width: 180px; }
+
+.other-time {
+  margin: 0 0 0 0;
+  display: none; }
+
+.time-info {
+  margin: 10px 0 0 0; }

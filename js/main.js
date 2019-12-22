@@ -44,13 +44,38 @@ var baseUrl = ""
 
 $(document).ready(function () {
 
+  Inputmask("datetime", {
+    inputFormat: "HH:MM",
+    placeholder: "__:__",
+    min: "08:00",
+    max: "21:00",
+  }).mask(".time-mask");
+
   calcFields();
 
   // Calc form
 
   if ($(".calc-form").length) {
 
-    $(".calc-form select").on("change", function () {
+    $(".calc-form .time-radio input[type=radio]").on("change", function () {
+
+      if ($(this).val() == 'time_other') {
+
+        $(this).closest(".time-radios").find(".other-time").show();
+        $(this).closest(".time-radios").find(".other-time input").focus();
+        $(this).closest(".time-radio").children("input, label").hide();
+
+      } else {
+
+        $(this).closest(".time-radios").find(".other-time").hide();
+        $(this).closest(".time-radios").find(".time-radio > input, .time-radio > label").show();
+
+
+      }
+
+    });
+
+    $(".calc-form select, .calc-form input[type='text']").on("change blur input", function () {
 
       calcFields();
 
@@ -418,8 +443,7 @@ $(document).ready(function () {
       });
     } else {
       $(this).selectpicker({
-        selectAllText: "Выбрать всё",
-        deselectAllText: "Снять выбор"
+
       });
     }
   });
@@ -712,7 +736,27 @@ function calcFields() {
 
   if ($(".calc-form").length) {
 
-    if ($(".calc-realty-form.active option[data-other=true]").is(":selected")) {
+    // Court
+
+    // $("[data-child='purpose_court']").each(function () {
+    //
+    //   if ($(this).is(":selected")) {
+    //
+    //     $(this).closest(".calc-realty-form option[data-rel='purpose_court']").attr("disabled", false);
+    //     $(this).closest(".calc-realty-form option[data-rel='purpose_court']").closest("select").selectpicker("refresh");
+    //
+    //   } else {
+    //
+    //     $(this).closest(".calc-realty-form option[data-rel='purpose_court']").attr("disabled", true);
+    //     $(this).closest(".calc-realty-form option[data-rel='purpose_court']").closest("select").selectpicker("refresh");
+    //
+    //   }
+    //
+    // });
+
+    // Court END
+
+    if ($(".calc-realty-form.active option[data-other=true]").is(":selected") || $("#calc_realty_8").is(":checked")) {
 
       $(".calc-nav").hide();
       $(".other-form").show();
@@ -811,6 +855,14 @@ function calcPrice(activeForm) {
       $("#calc_1_report").val() &&
       $("#calc_1_copies").val()) {
 
+      var timeArr = $("#calc_1_other_time").val().split(":");
+
+      if (parseInt(timeArr[0]) < 10 || parseInt(timeArr[0]) > 18) {
+
+        totalPrice += 1000;
+
+      }
+
       if ($("#calc_1_purpose option:selected").data("prices")) {
 
         var purposePriceArr = $("#calc_1_purpose option:selected").data("prices");
@@ -863,6 +915,159 @@ function calcPrice(activeForm) {
 
   }
 
+
+  if (activeForm.data("index") == 7) {
+
+    var totalPrice = 0;
+
+    if ($("#calc_7_area").val() &&
+      $("#calc_7_location").val() &&
+      (($("#calc_7_purpose").val() && $("#calc_7_purpose option:selected").data("prices")) ||
+        ($("#calc_7_purpose").val() && $("#calc_7_bank").val() && !$("#calc_7_bank").is("disabled"))) &&
+      $("#calc_7_term").val() &&
+      $("#calc_7_report").val() &&
+      $("#calc_7_copies").val()) {
+
+      var timeArr = $("#calc_7_other_time").val().split(":");
+
+      if (parseInt(timeArr[0]) < 10 || parseInt(timeArr[0]) > 18) {
+
+        totalPrice += 1000;
+
+      }
+
+      if ($("#calc_7_purpose option:selected").data("prices")) {
+
+        var purposePriceArr = $("#calc_7_purpose option:selected").data("prices");
+
+        totalPrice += parseInt(purposePriceArr[$("#calc_7_location").val() - 1]);
+
+      } else {
+
+        var banksPriceArr = $("#calc_7_bank option:selected").data("prices");
+
+        totalPrice += parseInt(banksPriceArr[$("#calc_7_location").val() - 1]);
+
+      }
+
+      if ($("#calc_7_area").val() == 2) {
+
+        totalPrice += 1000;
+
+      }
+
+      totalPrice += (parseInt($("#calc_7_copies").val()) - 2)*500;
+      totalPrice += parseInt($("#calc_7_report option:selected").data("price"));
+
+      if ($("#calc_7_term option:selected").data("factor")) {
+
+        totalPrice *= 2;
+
+        activeForm.find(".calc-result-term").html("Быстрая оценка в течение");
+        activeForm.find(".calc-result-term-units").html("дня");
+      } else {
+        activeForm.find(".calc-result-term").html($("#calc_7_term").val());
+        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_7_term").val(), ['день', 'дня', 'дней']));
+      }
+
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+
+      activeForm.find(".calc-form-result").slideDown(250);
+
+      $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+
+      $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_7_term").val());
+      $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_7_term").val(), ['день', 'дня', 'дней']));
+
+    } else {
+
+      activeForm.find(".calc-form-result").slideUp(250);
+
+    }
+
+  }
+
+  if (activeForm.data("index") == 8) {
+
+    var totalPrice = 0;
+
+
+
+  }
+
+  if (activeForm.data("index") == 9) {
+
+    var totalPrice = 0;
+
+    if ($("#calc_9_area").val() &&
+      $("#calc_9_location").val() &&
+      (($("#calc_9_purpose").val() && $("#calc_9_purpose option:selected").data("prices")) ||
+        ($("#calc_9_purpose").val() && $("#calc_9_bank").val() && !$("#calc_9_bank").is("disabled"))) &&
+      $("#calc_9_term").val() &&
+      $("#calc_9_report").val() &&
+      $("#calc_9_copies").val()) {
+
+      var timeArr = $("#calc_9_other_time").val().split(":");
+
+      if (parseInt(timeArr[0]) < 10 || parseInt(timeArr[0]) > 18) {
+
+        totalPrice += 1000;
+
+      }
+
+      if ($("#calc_9_purpose option:selected").data("prices")) {
+
+        var purposePriceArr = $("#calc_9_purpose option:selected").data("prices");
+
+        totalPrice += parseInt(purposePriceArr[$("#calc_9_location").val() - 1]);
+
+      } else {
+
+        var banksPriceArr = $("#calc_9_bank option:selected").data("prices");
+
+        totalPrice += parseInt(banksPriceArr[$("#calc_9_location").val() - 1]);
+
+      }
+
+      if ($("#calc_9_area").val() == 2) {
+
+        totalPrice += 1000;
+
+      }
+
+      totalPrice += (parseInt($("#calc_9_copies").val()) - 2)*500;
+      totalPrice += parseInt($("#calc_9_report option:selected").data("price"));
+
+      if ($("#calc_9_term option:selected").data("factor")) {
+
+        totalPrice *= 2;
+
+        activeForm.find(".calc-result-term").html("Быстрая оценка в течение");
+        activeForm.find(".calc-result-term-units").html("дня");
+      } else {
+        activeForm.find(".calc-result-term").html($("#calc_9_term").val());
+        activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_9_term").val(), ['день', 'дня', 'дней']));
+      }
+
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+
+      activeForm.find(".calc-form-result").slideDown(250);
+
+      $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+
+      $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_9_term").val());
+      $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_9_term").val(), ['день', 'дня', 'дней']));
+
+    } else {
+
+      activeForm.find(".calc-form-result").slideUp(250);
+
+    }
+
+  }
+
   if (activeForm.data("index") == 2) {
 
     var totalPrice = 0;
@@ -873,6 +1078,14 @@ function calcPrice(activeForm) {
       $("#calc_2_term").val() &&
       $("#calc_2_report").val() &&
       $("#calc_2_copies").val()) {
+
+      var timeArr = $("#calc_2_other_time").val().split(":");
+
+      if (parseInt(timeArr[0]) < 10 || parseInt(timeArr[0]) > 18) {
+
+        totalPrice += 1000;
+
+      }
 
       if ($("#calc_2_purpose option:selected").data("prices")) {
 
@@ -932,6 +1145,14 @@ function calcPrice(activeForm) {
       $("#calc_3_term").val() &&
       $("#calc_3_report").val() &&
       $("#calc_3_copies").val()) {
+
+      var timeArr = $("#calc_3_other_time").val().split(":");
+
+      if (parseInt(timeArr[0]) < 10 || parseInt(timeArr[0]) > 18) {
+
+        totalPrice += 1000;
+
+      }
 
       if ($("#calc_3_purpose option:selected").data("prices")) {
 
@@ -1062,6 +1283,14 @@ function calcPrice(activeForm) {
       $("#calc_4_report").val() &&
       $("#calc_4_copies").val()) {
 
+      var timeArr = $("#calc_4_other_time").val().split(":");
+
+      if (parseInt(timeArr[0]) < 10 || parseInt(timeArr[0]) > 18) {
+
+        totalPrice += 1000;
+
+      }
+
       if ($("#calc_4_purpose option:selected").data("prices")) {
 
         var purposePriceArr = $("#calc_4_purpose option:selected").data("prices");
@@ -1147,7 +1376,13 @@ function calcPrice(activeForm) {
       $("#calc_5_report").val() &&
       $("#calc_5_copies").val()) {
 
-      console.log('111')
+      var timeArr = $("#calc_5_other_time").val().split(":");
+
+      if (parseInt(timeArr[0]) < 10 || parseInt(timeArr[0]) > 18) {
+
+        totalPrice += 1000;
+
+      }
 
       if ($("#calc_5_purpose option:selected").data("prices")) {
 
@@ -1233,6 +1468,14 @@ function calcPrice(activeForm) {
       $("#calc_6_term").val() &&
       $("#calc_6_report").val() &&
       $("#calc_6_copies").val()) {
+
+      var timeArr = $("#calc_6_other_time").val().split(":");
+
+      if (parseInt(timeArr[0]) < 10 || parseInt(timeArr[0]) > 18) {
+
+        totalPrice += 1000;
+
+      }
 
       if ($("#calc_6_purpose option:selected").data("prices")) {
 

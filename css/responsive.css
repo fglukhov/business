@@ -125,7 +125,12 @@ body,
     font-size: 36px;
     line-height: 40px; }
   .client-col {
-    width: 20%; } }
+    width: 20%; }
+  .realty-radios {
+    flex-wrap: wrap; }
+  .realty-radio {
+    width: 20%;
+    margin-bottom: 30px; } }
 
 /* Large desktop END */
 /* Medium desktop */
