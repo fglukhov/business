@@ -2200,3 +2200,20 @@ ul.footer-menu a {
 .client-tmb img {
   max-width: 100%;
   max-height: 100%; }
+
+.bootstrap-select li.hidden {
+  display: none; }
+
+.bootstrap-select.btn-group .dropdown-menu li.no-results {
+  background: #fff !important;
+  padding: 5px 20px !important; }
+
+.other-form {
+  display: none;
+  margin: 30px 0 0 0; }
+
+.field-info {
+  margin: 4px 0 0 0; }
+
+.hidden-important {
+  display: none !important; }

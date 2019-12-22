@@ -364,7 +364,27 @@ $(document).ready(function () {
 
   $(document).on("input", ".numeric", function() {
     this.value = this.value.replace(/\D/g,'');
+
+
+
   });
+
+  $(document).on("blur", ".numeric", function() {
+
+    var max = parseInt($(this).attr('max'));
+    var min = parseInt($(this).attr('min'));
+    if ($(this).val() > max)
+    {
+      $(this).val(max);
+    }
+    else if ($(this).val() < min)
+    {
+      $(this).val(min);
+    }
+
+  });
+
+
 
 
   // Fancybox
@@ -692,6 +712,25 @@ function calcFields() {
 
   if ($(".calc-form").length) {
 
+    if ($(".calc-realty-form.active option[data-other=true]").is(":selected")) {
+
+      $(".calc-nav").hide();
+      $(".other-form").show();
+
+      $(".calc-realty-form.active .form-group, .calc-realty-form.active .calc-form-footer, .calc-realty-form.active .calc-result").addClass("hidden-important");
+
+      $(".calc-realty-form.active option[data-other=true]:selected").closest(".form-group").removeClass("hidden-important");
+
+    } else {
+
+      $(".calc-nav").show();
+      $(".other-form").hide();
+
+      $(".calc-realty-form.active .calc-form-footer, .calc-realty-form.active .calc-result").show();
+      $(".calc-realty-form.active .form-group").removeClass("hidden-important");
+
+    }
+
     $(".calc-realty-form input, .calc-realty-form select, .calc-realty-form textarea").each(function () {
 
       if (!$(this).closest(".calc-realty-form").hasClass("active")) {
@@ -764,7 +803,8 @@ function calcPrice(activeForm) {
 
     var totalPrice = 0;
 
-    if ($("#calc_1_location").val() &&
+    if ($("#calc_1_area").val() &&
+      $("#calc_1_location").val() &&
       (($("#calc_1_purpose").val() && $("#calc_1_purpose option:selected").data("prices")) ||
         ($("#calc_1_purpose").val() && $("#calc_1_bank").val() && !$("#calc_1_bank").is("disabled"))) &&
       $("#calc_1_term").val() &&
@@ -782,6 +822,12 @@ function calcPrice(activeForm) {
         var banksPriceArr = $("#calc_1_bank option:selected").data("prices");
 
         totalPrice += parseInt(banksPriceArr[$("#calc_1_location").val() - 1]);
+
+      }
+
+      if ($("#calc_1_area").val() == 2) {
+
+        totalPrice += 1000;
 
       }
 
@@ -842,7 +888,6 @@ function calcPrice(activeForm) {
 
       }
 
-      totalPrice += (parseInt($("#calc_2_copies").val()) - 2)*500;
       totalPrice += parseInt($("#calc_2_report option:selected").data("price"));
 
       if ($("#calc_2_term option:selected").data("factor")) {
@@ -855,6 +900,8 @@ function calcPrice(activeForm) {
         activeForm.find(".calc-result-term").html($("#calc_2_term").val());
         activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_2_term").val(), ['день', 'дня', 'дней']));
       }
+
+      totalPrice += (parseInt($("#calc_2_copies").val()) - 2)*500;
 
       activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
 
@@ -900,8 +947,65 @@ function calcPrice(activeForm) {
 
       }
 
-      totalPrice += (parseInt($("#calc_3_copies").val()) - 2)*500;
       totalPrice += parseInt($("#calc_3_report option:selected").data("price"));
+
+      if ($("#calc_3_area").val() == "1") {
+
+        if ($("#calc_3_term").val() == "1") {
+
+          if ($("#calc_3_location").val() == "1") {
+            totalPrice += 16000;
+          } else if ($("#calc_3_location").val() == "2") {
+            totalPrice += 16000;
+          } else if ($("#calc_3_location").val() == "3") {
+            totalPrice += 18000;
+          } else if ($("#calc_3_location").val() == "4") {
+            totalPrice += 24000;
+          }
+
+        } else if ($("#calc_3_term").val() == "3") {
+
+          if ($("#calc_3_location").val() == "1") {
+            totalPrice += 14000;
+          } else if ($("#calc_3_location").val() == "2") {
+            totalPrice += 14000;
+          } else if ($("#calc_3_location").val() == "3") {
+            totalPrice += 16000;
+          } else if ($("#calc_3_location").val() == "4") {
+            totalPrice += 20000;
+          }
+
+        }
+
+      } else if ($("#calc_3_area").val() == "2") {
+
+        if ($("#calc_3_term").val() == "1") {
+
+          if ($("#calc_3_location").val() == "1") {
+            totalPrice += 20000;
+          } else if ($("#calc_3_location").val() == "2") {
+            totalPrice += 20000;
+          } else if ($("#calc_3_location").val() == "3") {
+            totalPrice += 22000;
+          } else if ($("#calc_3_location").val() == "4") {
+            totalPrice += 26000;
+          }
+
+        } else if ($("#calc_3_term").val() == "3") {
+
+          if ($("#calc_3_location").val() == "1") {
+            totalPrice += 18000;
+          } else if ($("#calc_3_location").val() == "2") {
+            totalPrice += 18000;
+          } else if ($("#calc_3_location").val() == "3") {
+            totalPrice += 20000;
+          } else if ($("#calc_3_location").val() == "4") {
+            totalPrice += 22000;
+          }
+
+        }
+
+      }
 
       if ($("#calc_3_term option:selected").data("factor")) {
 
@@ -914,18 +1018,10 @@ function calcPrice(activeForm) {
         activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
       }
 
-      if ($("#calc_3_term").val() == "1") {
-
-        totalPrice += 16000;
-
-      } else if ($("#calc_3_term").val() == "3") {
-
-        totalPrice += 18000;
-
-      }
+      totalPrice += (parseInt($("#calc_3_copies").val()) - 2)*500;
 
       if ($("#calc_3_area").val() == "2") {
-        totalPrice = 0;
+        //totalPrice = 0;
       }
 
       if (totalPrice != 0) {
@@ -980,16 +1076,32 @@ function calcPrice(activeForm) {
 
       }
 
-      totalPrice += (parseInt($("#calc_4_copies").val()) - 2)*500;
+
       totalPrice += parseInt($("#calc_4_report option:selected").data("price"));
 
-      if ($("#calc_4_area").val() == "1") {
+      if ($("#calc_4_term").val() == "1") {
 
-        totalPrice += 8000;
+        if ($("#calc_4_location").val() == "1") {
+          totalPrice += 10000;
+        } else if ($("#calc_4_location").val() == "2") {
+          totalPrice += 10000;
+        } else if ($("#calc_4_location").val() == "3") {
+          totalPrice += 12000;
+        } else if ($("#calc_4_location").val() == "4") {
+          totalPrice += 14000;
+        }
 
-      } else if ($("#calc_4_area").val() == "2") {
+      } else if ($("#calc_4_term").val() == "3") {
 
-        totalPrice += 12000;
+        if ($("#calc_4_location").val() == "1") {
+          totalPrice += 8000;
+        } else if ($("#calc_4_location").val() == "2") {
+          totalPrice += 8000;
+        } else if ($("#calc_4_location").val() == "3") {
+          totalPrice += 10000;
+        } else if ($("#calc_4_location").val() == "4") {
+          totalPrice += 12000;
+        }
 
       }
 
@@ -1003,6 +1115,8 @@ function calcPrice(activeForm) {
         activeForm.find(".calc-result-term").html($("#calc_4_term").val());
         activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_4_term").val(), ['день', 'дня', 'дней']));
       }
+
+      totalPrice += (parseInt($("#calc_4_copies").val()) - 2)*500;
 
       activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
 
@@ -1023,23 +1137,60 @@ function calcPrice(activeForm) {
   }
 
   if (activeForm.data("index") == 5) {
-    
+
     var totalPrice = 0;
 
-    if ($("#calc_5_location").val() && $("#calc_5_term").val() && $("#calc_5_report").val() && $("#calc_5_copies").val()) {
+    if ($("#calc_5_location").val() &&
+      (($("#calc_5_purpose").val() && $("#calc_5_purpose option:selected").data("prices")) ||
+        ($("#calc_5_purpose").val() && $("#calc_5_bank").val() && !$("#calc_5_bank").is("disabled"))) &&
+      $("#calc_5_term").val() &&
+      $("#calc_5_report").val() &&
+      $("#calc_5_copies").val()) {
 
-      if ($("#calc_5_location").val() == "1") {
+      console.log('111')
 
-        var totalPrice = 5700;
+      if ($("#calc_5_purpose option:selected").data("prices")) {
+
+        var purposePriceArr = $("#calc_5_purpose option:selected").data("prices");
+
+        totalPrice += parseInt(purposePriceArr[$("#calc_5_location").val() - 1]);
 
       } else {
 
-        var totalPrice = 6175;
+        var banksPriceArr = $("#calc_5_bank option:selected").data("prices");
+
+        totalPrice += parseInt(banksPriceArr[$("#calc_5_location").val() - 1]);
 
       }
 
-      totalPrice += (parseInt($("#calc_5_copies").val()) - 2)*500;
+
       totalPrice += parseInt($("#calc_5_report option:selected").data("price"));
+
+      if ($("#calc_5_term").val() == "1") {
+
+        if ($("#calc_5_location").val() == "1") {
+          totalPrice += 5000;
+        } else if ($("#calc_5_location").val() == "2") {
+          totalPrice += 5500;
+        } else if ($("#calc_5_location").val() == "3") {
+          totalPrice += 6000;
+        } else if ($("#calc_5_location").val() == "4") {
+          totalPrice += 8000;
+        }
+
+      } else if ($("#calc_5_term").val() == "3") {
+
+        if ($("#calc_5_location").val() == "1") {
+          totalPrice += 4500;
+        } else if ($("#calc_5_location").val() == "2") {
+          totalPrice += 5000;
+        } else if ($("#calc_5_location").val() == "3") {
+          totalPrice += 5500;
+        } else if ($("#calc_5_location").val() == "4") {
+          totalPrice += 7000;
+        }
+
+      }
 
       if ($("#calc_5_term option:selected").data("factor")) {
 
@@ -1052,10 +1203,9 @@ function calcPrice(activeForm) {
         activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_5_term").val(), ['день', 'дня', 'дней']));
       }
 
-      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      totalPrice += (parseInt($("#calc_5_copies").val()) - 2)*500;
 
-      activeForm.find(".calc-result-term").html($("#calc_5_term").val());
-      activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_5_term").val(), ['день', 'дня', 'дней']));
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
@@ -1077,20 +1227,55 @@ function calcPrice(activeForm) {
 
     var totalPrice = 0;
 
-    if ($("#calc_6_location").val() && $("#calc_6_term").val() && $("#calc_6_report").val() && $("#calc_6_copies").val()) {
+    if ($("#calc_6_location").val() &&
+      (($("#calc_6_purpose").val() && $("#calc_6_purpose option:selected").data("prices")) ||
+        ($("#calc_6_purpose").val() && $("#calc_6_bank").val() && !$("#calc_6_bank").is("disabled"))) &&
+      $("#calc_6_term").val() &&
+      $("#calc_6_report").val() &&
+      $("#calc_6_copies").val()) {
 
-      if ($("#calc_6_location").val() == "1") {
+      if ($("#calc_6_purpose option:selected").data("prices")) {
 
-        var totalPrice = 5700;
+        var purposePriceArr = $("#calc_6_purpose option:selected").data("prices");
+
+        totalPrice += parseInt(purposePriceArr[$("#calc_6_location").val() - 1]);
 
       } else {
 
-        var totalPrice = 6175;
+        var banksPriceArr = $("#calc_6_bank option:selected").data("prices");
+
+        totalPrice += parseInt(banksPriceArr[$("#calc_6_location").val() - 1]);
 
       }
 
-      totalPrice += (parseInt($("#calc_6_copies").val()) - 2)*500;
+
       totalPrice += parseInt($("#calc_6_report option:selected").data("price"));
+
+      if ($("#calc_6_term").val() == "1") {
+
+        if ($("#calc_6_location").val() == "1") {
+          totalPrice += 5000;
+        } else if ($("#calc_6_location").val() == "2") {
+          totalPrice += 5500;
+        } else if ($("#calc_6_location").val() == "3") {
+          totalPrice += 6000;
+        } else if ($("#calc_6_location").val() == "4") {
+          totalPrice += 8000;
+        }
+
+      } else if ($("#calc_6_term").val() == "3") {
+
+        if ($("#calc_6_location").val() == "1") {
+          totalPrice += 4500;
+        } else if ($("#calc_6_location").val() == "2") {
+          totalPrice += 5000;
+        } else if ($("#calc_6_location").val() == "3") {
+          totalPrice += 5500;
+        } else if ($("#calc_6_location").val() == "4") {
+          totalPrice += 7000;
+        }
+
+      }
 
       if ($("#calc_6_term option:selected").data("factor")) {
 
@@ -1103,10 +1288,9 @@ function calcPrice(activeForm) {
         activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_6_term").val(), ['день', 'дня', 'дней']));
       }
 
-      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      totalPrice += (parseInt($("#calc_6_copies").val()) - 2)*500;
 
-      activeForm.find(".calc-result-term").html($("#calc_6_term").val());
-      activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_6_term").val(), ['день', 'дня', 'дней']));
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
