@@ -128,13 +128,25 @@ $(document).ready(function () {
 
                 var itemVal = $(this).find("select option:selected").html();
 
-              } else if ($(this).find("input[type='text']").length) {
+              } else if ($(this).find("input[type='text']").length && !$(this).find(".time-radios").length) {
 
                 var itemVal = $(this).find("input[type='text']").val();
 
-              } else if ($(this).find("input[type='radio']").length) {
+              } else if ($(this).find(".time-radios").length) {
 
-                var itemVal = $(this).find("input[type='radio']:checked").next("label").html();
+                if ($(this).find("input[type='radio']:checked").val() == "time_other") {
+
+                  var itemVal = $(this).find("input[type='text']").val();
+
+                } else {
+
+                  var itemVal = $(this).find("input[type='radio']:checked").next("label").html();
+
+                }
+
+              } else if ($(this).find("textarea").length) {
+
+                var itemVal = $(this).find("textarea").val();
 
               }
 
@@ -558,6 +570,8 @@ $(document).ready(function () {
 
 function validateForms() {
 
+  $('.textarea-autogrow').autogrow();
+
   $("input.input-phone").mask("+7 (999) 999-99-99");
 
   jQuery.validator.addClassRules('phone-email-group', {
@@ -898,11 +912,12 @@ function calcPrice(activeForm) {
       }
 
       activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      activeForm.find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
       $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
-      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_1_term").val());
       $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_1_term").val(), ['день', 'дня', 'дней']));
@@ -971,11 +986,12 @@ function calcPrice(activeForm) {
       }
 
       activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      activeForm.find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
       $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
-      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_7_term").val());
       $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_7_term").val(), ['день', 'дня', 'дней']));
@@ -1050,12 +1066,13 @@ function calcPrice(activeForm) {
         activeForm.find(".calc-result-term-units").html(declOfNum($("#calc_9_term").val(), ['день', 'дня', 'дней']));
       }
 
-      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      activeForm.find(".calc-result-price").html(numFormat.to(totalPrice))
+      activeForm.find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
       $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
-      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_9_term").val());
       $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_9_term").val(), ['день', 'дня', 'дней']));
@@ -1117,11 +1134,12 @@ function calcPrice(activeForm) {
       totalPrice += (parseInt($("#calc_2_copies").val()) - 2)*500;
 
       activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      activeForm.find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
       $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
-      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_2_term").val());
       $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_2_term").val(), ['день', 'дня', 'дней']));
@@ -1154,19 +1172,19 @@ function calcPrice(activeForm) {
 
       }
 
-      if ($("#calc_3_purpose option:selected").data("prices")) {
-
-        var purposePriceArr = $("#calc_3_purpose option:selected").data("prices");
-
-        totalPrice += parseInt(purposePriceArr[$("#calc_3_location").val() - 1]);
-
-      } else {
-
-        var banksPriceArr = $("#calc_3_bank option:selected").data("prices");
-
-        totalPrice += parseInt(banksPriceArr[$("#calc_3_location").val() - 1]);
-
-      }
+      // if ($("#calc_3_purpose option:selected").data("prices")) {
+      //
+      //   var purposePriceArr = $("#calc_3_purpose option:selected").data("prices");
+      //
+      //   totalPrice += parseInt(purposePriceArr[$("#calc_3_location").val() - 1]);
+      //
+      // } else {
+      //
+      //   var banksPriceArr = $("#calc_3_bank option:selected").data("prices");
+      //
+      //   totalPrice += parseInt(banksPriceArr[$("#calc_3_location").val() - 1]);
+      //
+      // }
 
       totalPrice += parseInt($("#calc_3_report option:selected").data("price"));
 
@@ -1249,6 +1267,8 @@ function calcPrice(activeForm) {
 
         activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
 
+        activeForm.find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
+
       } else {
         var totalPriceButton = '<a href="#" class="btn btn-1" data-toggle="modal" data-target="#callbackModal">Узнать стоимость</a>';
         activeForm.find(".calc-result-price").html(totalPriceButton);
@@ -1257,7 +1277,7 @@ function calcPrice(activeForm) {
       activeForm.find(".calc-form-result").slideDown(250);
 
       $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
-      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_3_term").val());
       $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_3_term").val(), ['день', 'дня', 'дней']));
@@ -1291,19 +1311,19 @@ function calcPrice(activeForm) {
 
       }
 
-      if ($("#calc_4_purpose option:selected").data("prices")) {
-
-        var purposePriceArr = $("#calc_4_purpose option:selected").data("prices");
-
-        totalPrice += parseInt(purposePriceArr[$("#calc_4_location").val() - 1]);
-
-      } else {
-
-        var banksPriceArr = $("#calc_4_bank option:selected").data("prices");
-
-        totalPrice += parseInt(banksPriceArr[$("#calc_4_location").val() - 1]);
-
-      }
+      // if ($("#calc_4_purpose option:selected").data("prices")) {
+      //
+      //   var purposePriceArr = $("#calc_4_purpose option:selected").data("prices");
+      //
+      //   totalPrice += parseInt(purposePriceArr[$("#calc_4_location").val() - 1]);
+      //
+      // } else {
+      //
+      //   var banksPriceArr = $("#calc_4_bank option:selected").data("prices");
+      //
+      //   totalPrice += parseInt(banksPriceArr[$("#calc_4_location").val() - 1]);
+      //
+      // }
 
 
       totalPrice += parseInt($("#calc_4_report option:selected").data("price"));
@@ -1348,11 +1368,12 @@ function calcPrice(activeForm) {
       totalPrice += (parseInt($("#calc_4_copies").val()) - 2)*500;
 
       activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      activeForm.find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
       $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
-      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_4_term").val());
       $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_4_term").val(), ['день', 'дня', 'дней']));
@@ -1441,11 +1462,12 @@ function calcPrice(activeForm) {
       totalPrice += (parseInt($("#calc_5_copies").val()) - 2)*500;
 
       activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      activeForm.find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
       $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
-      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_5_term").val());
       $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_5_term").val(), ['день', 'дня', 'дней']));
@@ -1477,19 +1499,19 @@ function calcPrice(activeForm) {
 
       }
 
-      if ($("#calc_6_purpose option:selected").data("prices")) {
-
-        var purposePriceArr = $("#calc_6_purpose option:selected").data("prices");
-
-        totalPrice += parseInt(purposePriceArr[$("#calc_6_location").val() - 1]);
-
-      } else {
-
-        var banksPriceArr = $("#calc_6_bank option:selected").data("prices");
-
-        totalPrice += parseInt(banksPriceArr[$("#calc_6_location").val() - 1]);
-
-      }
+      // if ($("#calc_6_purpose option:selected").data("prices")) {
+      //
+      //   var purposePriceArr = $("#calc_6_purpose option:selected").data("prices");
+      //
+      //   totalPrice += parseInt(purposePriceArr[$("#calc_6_location").val() - 1]);
+      //
+      // } else {
+      //
+      //   var banksPriceArr = $("#calc_6_bank option:selected").data("prices");
+      //
+      //   totalPrice += parseInt(banksPriceArr[$("#calc_6_location").val() - 1]);
+      //
+      // }
 
 
       totalPrice += parseInt($("#calc_6_report option:selected").data("price"));
@@ -1534,11 +1556,12 @@ function calcPrice(activeForm) {
       totalPrice += (parseInt($("#calc_6_copies").val()) - 2)*500;
 
       activeForm.find(".calc-result-price").html(numFormat.to(totalPrice));
+      activeForm.find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       activeForm.find(".calc-form-result").slideDown(250);
 
       $(".calc-form-result-vis").find(".calc-result-price").html(numFormat.to(totalPrice));
-      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .95)));
+      $(".calc-form-result-vis").find(".calc-result-price-with-discount").html(numFormat.to(Math.floor(parseInt(totalPrice) * .9)));
 
       $(".calc-form-result-vis").find(".calc-result-term").html($("#calc_6_term").val());
       $(".calc-form-result-vis").find(".calc-result-term-units").html(declOfNum($("#calc_6_term").val(), ['день', 'дня', 'дней']));
@@ -1571,3 +1594,30 @@ function errorsCustom() {
   });
 
 }
+
+(function($) {
+  $.fn.autogrow = function() {
+    return this.each(function() {
+      var textarea = this;
+      $.fn.autogrow.resize(textarea);
+      $(textarea).focus(function() {
+        textarea.interval = setInterval(function() {
+          $.fn.autogrow.resize(textarea);
+        }, 500);
+      }).blur(function() {
+        clearInterval(textarea.interval);
+      });
+    });
+  };
+  $.fn.autogrow.resize = function(textarea) {
+    var lineHeight = parseInt($(textarea).css('line-height'), 10);
+    var lines = textarea.value.split('\n');
+    var columns = textarea.cols;
+    var lineCount = 0;
+    $.each(lines, function() {
+      lineCount += Math.ceil(this.length / columns) || 1;
+    });
+    var height = lineHeight * (lineCount) + 24;
+    $(textarea).css('height', height);
+  };
+})(jQuery);
